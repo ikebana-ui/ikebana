@@ -4,6 +4,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    clean: ["target"],
+
     uglify: {
       options: {
         banner: '/*! <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -11,6 +13,10 @@ module.exports = function(grunt) {
       js_min: {
         src: 'lib/components/'+foldername+'/*.js',
         dest: 'target/lib/components/'+foldername+'/'+foldername+'.min.js'
+      },
+      js_ikebana:{
+        src: 'lib/components/ikebana/*.js',
+        dest: 'target/lib/components/ikebana/ikebana.min.js'
       }
     }
     ,
@@ -18,6 +24,12 @@ module.exports = function(grunt) {
       minify: {
         expand: true,
         src: ['lib/components/'+foldername+'/*.css'],
+        dest: 'target/',
+        ext: '.min.css'
+    },
+    minify_ikebana: {
+        expand: true,
+        src: ['lib/components/ikebana/*.css'],
         dest: 'target/',
         ext: '.min.css'
     }
@@ -51,16 +63,11 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+   grunt.loadNpmTasks('grunt-contrib-clean');
   // grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-
-  grunt.registerTask('minify', ['uglify:js_min','cssmin']);
-  grunt.registerTask('minify-js', ['uglify:js_min']);
-  grunt.registerTask('minify-css', ['cssmin']);
-
-  grunt.registerTask('singlify',['concat:js','concat:css']);
-  grunt.registerTask('singlify-js',['concat:js']);
-  grunt.registerTask('singlify-css',['concat:css']);
+  grunt.registerTask('clean',['clean']);
+  grunt.registerTask('build',['concat','uglify','cssmin']);
   
   // grunt.registerTask('archive',['compress']);
 };
