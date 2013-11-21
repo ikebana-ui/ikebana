@@ -66,7 +66,7 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-contrib-clean');
   // grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.registerTask('clean',['clean']);
+  grunt.registerTask('clear',['clean']);
   grunt.registerTask('build',['concat','uglify','cssmin']);
   
   // grunt.registerTask('archive',['compress']);
