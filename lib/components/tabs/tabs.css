@@ -1,0 +1,13 @@
+.brick {
+    width: 11px;
+    height: 11px;
+    border: solid 1px white;
+    background: white;
+    float: left;
+}
+.brick.on {
+    background: black;
+}
+.brick.now {
+    background: green;
+}
