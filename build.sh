@@ -4,10 +4,14 @@ MYCOMPONENTS="lib/components/"
 
 dirs=`ls -l $MYCOMPONENTS | egrep '^d' | awk '{print $9}'`;
 
+echo 'Cleaning target.....';
 grunt clear;
 
-for dir in $dirs 
+echo 'Building ikebana.....';
+grunt build-all;
+
+for dir in $dirs
 do
-	echo 'Building all files.....';
-	grunt build --foldername=${dir};
+	echo 'Building '${dir}'.....';
+	grunt build-selected --foldername=${dir};
 done

@@ -10,40 +10,47 @@ module.exports = function(grunt) {
       options: {
         banner: '/*! <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
-      js_min: {
+      js_selected: {
         src: 'lib/components/'+foldername+'/*.js',
         dest: 'target/lib/components/'+foldername+'/'+foldername+'.min.js'
       },
-      js_ikebana:{
-        src: 'lib/components/ikebana/*.js',
+      js_all:{
+        src: 'target/lib/components/ikebana/js-ikebana.js',
         dest: 'target/lib/components/ikebana/ikebana.min.js'
       }
     }
     ,
     cssmin: {
-      minify: {
+      selected: {
         expand: true,
         src: ['lib/components/'+foldername+'/*.css'],
         dest: 'target/',
         ext: '.min.css'
-    },
-    minify_ikebana: {
-        expand: true,
-        src: ['lib/components/ikebana/*.css'],
-        dest: 'target/',
-        ext: '.min.css'
+      },
+      all: {
+          expand: true,
+          src: ['target/lib/components/ikebana/*.css'],
+          ext: '.min.css'
+      }
     }
-  }
     ,
     concat:{
       options: {
         banner: '/*! singlified <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
-       js: {
+      js_selected: {
+        src:'lib/components/'+foldername+'/*.js',
+        dest:'target/lib/components/'+foldername+'/'+foldername+'-singlified.js'
+      },
+      css_selected: {
+        src: 'lib/components/'+foldername+'/*.css',
+        dest: 'target/lib/components/'+foldername+'/'+foldername+'-singlified.css'
+      }, 
+      js_all: {
         src:'lib/components/**/*.js',
         dest:'target/lib/components/ikebana/js-ikebana.js'
       },
-      css: {
+      css_all: {
         src: 'lib/components/**/*.css',
         dest: 'target/lib/components/ikebana/css-ikebana.css'
       }
@@ -67,7 +74,8 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.registerTask('clear',['clean']);
-  grunt.registerTask('build',['concat','uglify','cssmin']);
-  
+  grunt.registerTask('build-all',['concat:js_all','concat:css_all','uglify:js_all','cssmin:all']);
+  grunt.registerTask('build-selected',['concat:js_selected','concat:css_selected','uglify:js_selected','cssmin:selected']);
+
   // grunt.registerTask('archive',['compress']);
 };
