@@ -1,3 +1,5 @@
+*.css
 .sass-cache/
 node_modules/
 target/
+remove_css.sh
