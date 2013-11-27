@@ -8,5 +8,5 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-clean": "*"
-  }
+   }
 }

@@ -1,0 +1,54 @@
+@import "../../config"
+@import "../../mixins"
+
+.btn
+	@include gradient(#FFFFFF, #EFEFEF)
+	@include rounded($button-radius)
+	border: 1px #DDDDDD solid
+	cursor: pointer
+	height: 30px
+	margin: 0px
+	padding: 0px 20px
+	font-size: 12px
+	font-weight: bold
+	&:hover, &.hover
+		@include gradient(#FFFFFF, #F9F9F9)
+		border-color: #CCCCCC
+		span
+			color: #333333
+	&:active, &.active
+		@include gradient(#EEEEEE, #EEEEEE)
+		span
+			color: #333333
+	span
+		color: #666666
+		line-height: 28px
+		text-align: center
+		display: inline-block
+		float: none
+	&.primary
+		@include gradient(#4da1ca, #2A7DA7)
+		border: 1px solid #2F8DBC
+		span
+			color: #FFFFFF
+		&:hover, &.hover
+			@include gradient(#5BB2DC, #398EB9)
+		&:active, &.active
+			@include gradient(#3E7E9D, #2E6886)
+	&.small
+		padding: 0 10px
+		height: 26px
+		span
+			font-size: 10px
+			line-height: 22px
+
+a.btn
+	display: inline-block
+	line-height: 29px
+	height: 28px
+	outline: none
+	text-decoration: none
+
+button.btn
+	@include reset-control
+
