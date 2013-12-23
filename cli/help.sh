@@ -1,5 +1,6 @@
-echo "SYNTAX: ikebana <flavour_name>:<component_name>"
-echo "\t\tOR"
-echo "\tikebana <flavour_name>:all"
-echo "\t\tOR"
-echo "\tikebana <flavour_name>" 
+echo "SYNTAX:"
+echo "	ikebana install <flavour_name>:<component_name>"
+echo 
+echo "	ikebana install <flavour_name>:all"
+echo 
+echo "	ikebana install <flavour_name>" 
