@@ -1,0 +1,14 @@
+$contrasted-dark-default:   #000 !default
+$contrasted-light-default:  #fff !default
+$contrasted-lightness-threshold: $contrast !default
+
+@function contrast-color($color, $dark: $contrasted-dark-default, $light: $contrasted-light-default, $threshold: $contrasted-lightness-threshold)
+  @return if(lightness($color) < $threshold, $light, $dark)
+
+
+@mixin contrasted ($background-color, $dark: $contrasted-dark-default, $light: $contrasted-light-default, $threshold: $contrasted-lightness-threshold)
+  background-color: $background-color
+  color: contrast-color($background-color, $dark, $light, $threshold)
+
+@mixin contrasted-text ($background-color, $dark, $light, $threshold: $contrast)
+  color: contrast-color($background-color, $dark, $light, $threshold)
