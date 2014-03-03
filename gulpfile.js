@@ -12,7 +12,9 @@ var gulp = require("gulp"),
     args = require("yargs").argv,
     gulpif = require("gulp-if"),
     rename = require("gulp-rename"),
-    header = require("gulp-header");
+    header = require("gulp-header"),
+    debug = require("gulp-debug"),
+    gutil = require("gulp-util");
 
 /**
  * header config for gulp-header
