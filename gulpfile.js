@@ -84,6 +84,7 @@ gulp.task("tag"/*, ["dist"] */, function () {
 gulp.task("ci", ["clean", "lint", "compass", "dist"]);
 
 /**
+ * Create
  * Custom task to create a new component for development.
  */
 gulp.task("create", function () {
