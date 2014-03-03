@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem "sass"
 
 # compass-style.org
-# gem "compass"
+gem "compass"
 
 # bourbon.io
 gem "bourbon"
