@@ -15,7 +15,8 @@
     "dir": {
       "lib": "lib",
       "dist": "dist",
-      "doc": "doc"
+      "doc": "doc",
+      "tpl": "template"
     }
   },
   "license": "MIT",
