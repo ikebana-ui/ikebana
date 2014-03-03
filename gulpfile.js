@@ -12,8 +12,7 @@ var gulp = require("gulp"),
     args = require("yargs").argv,
     gulpif = require("gulp-if"),
     rename = require("gulp-rename"),
-    header = require("gulp-header"),
-    expect = require("gulp-expect-file");
+    header = require("gulp-header");
 
 /**
  * header config for gulp-header
@@ -92,16 +91,7 @@ gulp.task("create", function () {
     return;
   }
 
-  return gulp.src(pkg.config.dir.lib + "/components/" + name + "/*.*")
-    .pipe(expect({
-      errorOnFailure: true,
-      reportMissing: false,
-      reportUnexpected: true
-    }, [ name ]))
-    .on("error", function (err) {
-      console.error("[ikebana] Error! " + name + " already exists!");
-    })
-    .pipe(gulp.src(pkg.config.dir.tpl + "/component/css/component.scss"))
+  return gulp.src(pkg.config.dir.tpl + "/component/css/component.scss")
     .pipe(template({ name: name }))
     .pipe(rename({
         basename: name,

@@ -37,8 +37,7 @@
     "yargs": "^1.2.1",
     "gulp-if": "0.0.5",
     "gulp-compass": "^1.1.4",
-    "gulp-template": "^0.1.1",
-    "gulp-expect-file": "0.0.4"
+    "gulp-template": "^0.1.1"
   },
   "keywords": [
     "ikebana",
