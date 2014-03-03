@@ -23,7 +23,7 @@ To build Ikebana from sources, clone this repository, satisfy all the dependenci
 ```
     git clone git@github.com:rishabhsrao/ikebana.git
     cd ikebana
-    npm install && bower install
+    bundle install && npm install && bower install
     gulp
 ```
 
