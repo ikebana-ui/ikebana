@@ -1,11 +1,16 @@
 {
   "name": "ikebana",
   "version": "0.0.1",
+  "url": "https://github.com/rishabhsrao/ikebana",
   "repository": {
     "type": "git",
     "url": "git://github.com/rishabhsrao/ikebana"
   },
-  "author": "ThoughtWorks, Inc.",
+  "author": {
+    "name": "ThoughtWorks, Inc.",
+    "email": "info@thoughtworks.com",
+    "url": "http://thoughtworks.com"
+  },
   "license": "MIT",
   "description": "Ikebana is a UI component library.",
   "dependencies": {
