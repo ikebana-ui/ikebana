@@ -143,3 +143,13 @@ gulp.task("lint", function () {
     .pipe(jshint(".jshintrc"))
     .pipe(jshint.reporter("jshint-stylish"));
 });
+
+/**
+ * Dist
+ * Custom task for building a distribution version.
+ */
+gulp.task("dist", ["clean", "lint", "compass"], function () {
+  var pkg = require("./package.json");
+
+  return gulp.src(pkg.config.dir.dist + "/**");
+});
