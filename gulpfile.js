@@ -89,30 +89,26 @@ gulp.task("create", function () {
       name = args.name || null;
 
   if(null === name) {
-    console.error("[ikebana] Error! Invalid arguments. Usage: gulp create --name <component-name>");
+    gutil.log("Error, invalid argument(s)! Usage: gulp create --name <component-name>");
     return;
   }
 
-  return gulp.src(pkg.config.dir.tpl + "/component/css/component.scss")
-    .pipe(template({ name: name }))
+  return gulp.src(pkg.config.dir.tpl + "/component/**")
+    .pipe(template({
+      name: name,
+      pkg: pkg
+    }))
     .pipe(rename({
         basename: name,
         prefix: "",
-        suffix: "",
-        extname: ".scss"
+        suffix: ""
     }))
-    .pipe(header(ikebana.header.extended, { name: name, pkg: pkg }))
-    .pipe(gulp.dest(pkg.config.dir.lib + "/components/" + name + "/css"))
-    .pipe(gulp.src(pkg.config.dir.tpl + "/component/js/component.js"))
-    .pipe(template({ name: name }))
-    .pipe(rename({
-        basename: name,
-        prefix: "",
-        suffix: "",
-        extname: ".js"
-    }))
-    .pipe(header(ikebana.header.extended, { name: name, pkg: pkg }))
-    .pipe(gulp.dest(pkg.config.dir.lib + "/components/" + name + "/js"));
+    .pipe(gulp.dest(pkg.config.dir.lib + "/components/" + name + "/"));
+
+    // TODO Make this interactive using https://www.npmjs.org/package/gulp-prompt
+    // SEE https://github.com/isaacs/rimraf
+    // SEE https://github.com/substack/node-mkdirp
+    // SEE https://github.com/isaacs/node-touch
 });
 
 
