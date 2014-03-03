@@ -1,6 +1,5 @@
 ### ikebana (master) ###
-dist
-doc
+
 
 # Created by http://www.gitignore.io
 
@@ -10,3 +9,9 @@ doc
 
 ### Node ###
 node_modules
+
+### OS X ###
+.DS_Store
+
+### IDE ###
+*.sublime*
