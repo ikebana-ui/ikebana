@@ -1,4 +1,24 @@
 {
   "name": "ikebana",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rishabhsrao/ikebana"
+  },
+  "author": "ThoughtWorks, Inc.",
+  "license": "MIT",
+  "description": "Ikebana is a UI component library.",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp-util": "^2.2.14",
+    "gulp": "^3.5.5"
+  },
+  "keywords": [
+    "ikebana",
+    "ui",
+    "component",
+    "library",
+    "html"
+  ]
 }
