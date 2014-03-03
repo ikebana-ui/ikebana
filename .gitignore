@@ -16,3 +16,6 @@ Thumbs.db
 
 ### IDE ###
 *.sublime*
+
+### Ruby ###
+.bundle
