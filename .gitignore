@@ -12,8 +12,9 @@ web
 ### Node ###
 node_modules
 
-### OS X ###
+### Operating system ###
 .DS_Store
+Thumbs.db
 
 ### IDE ###
 *.sublime*
