@@ -8,7 +8,7 @@ Ikebana (/ˌɪkɪˈbɑːnə/) is a UI component library.
 
 ## Getting started
 
-Ikebana components can be installed using [Bower](http://bower.io) from `http://rishabhsrao.github.io/ikebana/dist/<ver.si.on>/<component-name>`.
+Ikebana components can be installed using [Bower](http://bower.io) from `http://rishabhsrao.github.io/ikebana/dist/<major.minor.patch>/<component-name>`.
 
 For example, to install the **Button** component v0.0.1...
 
