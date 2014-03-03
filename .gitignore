@@ -1,5 +1,12 @@
-*.css
-.sass-cache/
-node_modules/
-target/
-remove_css.sh
+### ikebana (master) ###
+dist
+doc
+
+# Created by http://www.gitignore.io
+
+### SASS ###
+### Sass Ignores - "Sassy CSS" http://sass-lang.com/
+*.sass-cache
+
+### Node ###
+node_modules
