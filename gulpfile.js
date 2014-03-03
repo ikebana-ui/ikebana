@@ -14,7 +14,9 @@ var gulp = require("gulp"),
     rename = require("gulp-rename"),
     header = require("gulp-header"),
     debug = require("gulp-debug"),
-    gutil = require("gulp-util");
+    gutil = require("gulp-util"),
+    zip = require("gulp-zip");
+;
 
 /**
  * header config for gulp-header
