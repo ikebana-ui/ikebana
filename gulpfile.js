@@ -189,6 +189,7 @@ gulp.task("deploy", ["dist"], function () {
         "git checkout gh-pages",
         "git add dist doc web",
         ("git commit -m '" + message + "'"),
+        "git push origin gh-pages",
         "git checkout master"
       ].join(" ; ");
 
