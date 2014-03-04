@@ -1,14 +1,16 @@
 /**
-  * Jasmine test spec for <%= name %> - <%= pkg.name %>
+  * Test for <%= name %> - <%= pkg.name %>
   * @version v<%= pkg.version %>
   * @link <%= pkg.url %>
   * @license <%= pkg.license %>
   */
 
-describe("Test suite for <%= name %>", function() {
-  it("contains spec with an expectation", function() {
-    // TODO Add <%= name %>'s tests
-    // E.g. expect(true).toBe(true);
-    // See http://jasmine.github.io
-  });
-});
+var assert = require("assert");
+
+describe("Sample test set for <%= name %>", function () {
+    it("should help users write tests easily", function(){
+      // TODO Add <%= name %>'s tests
+      // E.g. assert.equal(true, true); // See visionmedia.github.io/mocha
+    })
+  })
+})
