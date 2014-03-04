@@ -11,8 +11,10 @@ before_script:
   - "git clone --quiet https://$GH_TOKEN@github.com/$GH_REPO $GH_REPO_NAME"
   - "cd $GH_REPO_NAME"
   - "git status"
+  - "ls -la"
   - "git config user.email 'travis@travis-ci.org'"
   - "git config user.name 'travis-ci'"
+  - "echo $PATH"
 script:
   - "gulp ci"
 after_success:
