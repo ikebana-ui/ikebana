@@ -155,5 +155,11 @@ gulp.task("lint", function () {
 gulp.task("dist", ["clean", "lint", "compass"], function () {
   var pkg = require("./package.json");
 
-  return gulp.src(pkg.config.dir.dist + "/**");
+  return gulp.src([
+      pkg.config.dir.lib + "/components/**",
+      "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
+    ], {
+      base: "./" + pkg.config.dir.lib
+    })
+    .pipe(gulp.dest(pkg.config.dir.dist));
 });
