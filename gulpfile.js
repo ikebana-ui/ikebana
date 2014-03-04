@@ -75,7 +75,7 @@ gulp.task("tag", ["build", "bump"], function () {
     .pipe(git.add())
     .pipe(git.commit(messages.ghPages));
 
-  // git.push("origin", "master gh-pages", "--tags");
+  git.push("origin", "master gh-pages", { args: "--tags" });
 });
 
 /**
