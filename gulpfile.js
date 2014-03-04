@@ -189,6 +189,10 @@ gulp.task("deploy", ["dist"], function () {
 
   spawnGit = spawn("git", ["checkout", "gh-pages"], { cwd: process.cwd() });
 
+  spawnGit.stdout.on("message", function (data) {
+    gutil.log(data);
+  });
+
   spawnGit = spawn("git", [
     "add", pkg.config.dir.dist, pkg.config.dir.doc, pkg.config.dir.web
   ], { cwd: process.cwd() });
@@ -200,10 +204,6 @@ gulp.task("deploy", ["dist"], function () {
   // TODO Push
 
   spawnGit = spawn("git", ["checkout", "master"], { cwd: process.cwd() });
-
-  spawnGit.stdout.on("data", function (data) {
-    gutil.log(data);
-  });
 });
 
 
