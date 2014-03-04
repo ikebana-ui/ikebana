@@ -15,7 +15,9 @@ var gulp = require("gulp"),
     header = require("gulp-header"),
     debug = require("gulp-debug"),
     gutil = require("gulp-util"),
-    zip = require("gulp-zip");
+    zip = require("gulp-zip"),
+    jshint = require("gulp-jshint"),
+    ignore = require("gulp-ignore");
 ;
 
 /**
