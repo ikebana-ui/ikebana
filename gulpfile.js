@@ -102,7 +102,6 @@ gulp.task("create", function () {
       name: name,
       pkg: pkg
     }))
-    .pipe(debug())
     .pipe(rename({
       basename: name,
       prefix: "",
