@@ -76,13 +76,25 @@ gulp.task("tag", ["build", "bump"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version;
-  var message = ":tropical_drink: [gulp] Tagging release " + v + " on ";
+  var messages = {
+    "master": ":tropical_drink: [gulp] Tagging release " + v + " on " + new Date().toUTCString(),
+    "ghPages": ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString()
+  };
 
   gulp.src("./")
-    .pipe(git.commit(message));
+    .pipe(git.commit(messages.master));
+  git.tag(v, messages.master);
 
-  git.tag(v, message);
-  // git.push("origin", "master", "--tags");
+  git.checkout("gh-pages");
+  gulp.src([
+    "./" + pkg.config.dir.dist,
+    "./" + pkg.config.dir.doc,
+    "./" + pkg.config.dir.web
+  ])
+    .pipe(git.add())
+    .pipe(git.commit(messages.ghPages));
+
+  // git.push("origin", "master gh-pages", "--tags");
 });
 
 /**
