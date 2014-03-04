@@ -20,6 +20,7 @@ var args     = require("yargs").argv,
     mocha    = require("gulp-mocha"),
     path     = require("path"),
     rename   = require("gulp-rename"),
+    spawn    = require('child_process').spawn,
     template = require("gulp-template"),
     uglify   = require("gulp-uglify"),
     zip      = require("gulp-zip");
@@ -179,23 +180,33 @@ gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
  * Deploy
  * Custom task to deploy a distribution to the server.
  */
-gulp.task("deploy", ["dist"], function () {
-  var pkg = require("./package.json");
+gulp.task("deploy", function () {
+  var pkg = require("./package.json"),
+      spawnGit = null,
+      message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString();
 
-  var v = "v" + pkg.version;
-  var message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString();
+  spawnGit = spawn("git", ["checkout", "master"], { cwd: process.cwd() });
 
-  gulp.src("./*")
-    .pipe(git.checkout("gh-pages"));
+  gulp.run("dist");
 
-  gulp.src([
-    "./" + pkg.config.dir.dist,
-    "./" + pkg.config.dir.doc,
-    "./" + pkg.config.dir.web
-  ])
-    .pipe(git.add())
-    .pipe(git.commit(message))
-    .pipe(git.push("origin", "gh-pages"));
+  spawnGit = spawn("git", ["checkout", "gh-pages"], { cwd: process.cwd() });
+
+  spawnGit = spawn("git", [
+    "add", pkg.config.dir.dist, pkg.config.dir.doc, pkg.config.dir.web
+  ], { cwd: process.cwd() });
+
+  spawnGit = spawn("git", [
+    "commit", "-m", message
+  ], { cwd: process.cwd() });
+
+  // TODO Push
+
+  spawnGit = spawn("git", ["checkout", "master"], { cwd: process.cwd() });
+
+  spawnGit.stdout.on("data", function (data) {
+    stdout += data;
+    gutil.log(data);
+  });
 });
 
 
