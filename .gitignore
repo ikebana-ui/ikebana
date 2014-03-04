@@ -9,6 +9,7 @@ lib
 
 ### Node ###
 node_modules
+npm-debug.log
 
 ### Operating system ###
 .DS_Store
