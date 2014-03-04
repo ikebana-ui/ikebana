@@ -76,7 +76,7 @@ gulp.task("tag", ["build", "bump"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version;
-  var message = "Release " + v;
+  var message = ":tropical_drink: [gulp] Tagging release " + v + " on ";
 
   gulp.src("./")
     .pipe(git.commit(message));
