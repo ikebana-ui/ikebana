@@ -24,25 +24,6 @@ var args     = require("yargs").argv,
     uglify   = require("gulp-uglify"),
     zip      = require("gulp-zip");
 
-/**
- * Header configuration for gulp-header
- */
-var ikebana = {
-  header: {
-    extended: [
-      "/**",
-      "* <%= name %> - <%= pkg.name %>",
-      "* @version v<%= pkg.version %>",
-      "* @link <%= pkg.url %>",
-      "* @license <%= pkg.license %>",
-      "*/\n\n"
-    ].join("\n"),
-
-    succinct: "// <%= name %> - <%= pkg.name %> @v<%= pkg.version %>, <%= pkg.license %> licensed. <%= pkg.url %>\n"
-  }
-};
-
-
 /* ⚑ Project scaffolding tasks */
 
 /**
