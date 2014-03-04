@@ -202,7 +202,6 @@ gulp.task("deploy", ["dist"], function () {
   spawnGit = spawn("git", ["checkout", "master"], { cwd: process.cwd() });
 
   spawnGit.stdout.on("data", function (data) {
-    stdout += data;
     gutil.log(data);
   });
 });
