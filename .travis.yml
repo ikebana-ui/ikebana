@@ -6,10 +6,10 @@ before_install:
   - "npm install -g gulp"
 before_script:
   - "cd $HOME"
-  - "git config user.email 'travis@travis-ci.org'"
-  - "git config user.name 'travis-ci'"
   - "git clone --quiet https://$GH_TOKEN@github.com/$GH_REPO $GH_REPO_NAME"
   - "cd $GH_REPO_NAME"
+  - "git config user.email 'travis@travis-ci.org'"
+  - "git config user.name 'travis-ci'"
 script:
   - "gulp ci"
 after_success:
