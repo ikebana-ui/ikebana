@@ -182,8 +182,10 @@ gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
  */
 gulp.task("deploy", function () {
   var pkg = require("./package.json"),
-      spawnGit = null,
-      message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString();
+      spawnGit = null;
+
+  var v = "v" + pkg.version;
+  var message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString();
 
   spawnGit = spawn("git", ["checkout", "master"], { cwd: process.cwd() });
 
