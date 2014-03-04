@@ -8,6 +8,8 @@ var args     = require("yargs").argv,
     clean    = require("gulp-clean"),
     compass  = require("gulp-compass"),
     debug    = require("gulp-debug"),
+    es       = require("event-stream"),
+    fs       = require("fs"),
     git      = require("gulp-git"),
     gulp     = require("gulp"),
     gulpif   = require("gulp-if"),
@@ -16,6 +18,7 @@ var args     = require("yargs").argv,
     ignore   = require("gulp-ignore"),
     jshint   = require("gulp-jshint"),
     mocha    = require("gulp-mocha"),
+    path     = require("path"),
     rename   = require("gulp-rename"),
     template = require("gulp-template"),
     uglify   = require("gulp-uglify"),
@@ -204,13 +207,28 @@ gulp.task("dist", ["clean", "compass", "lint", "test", "uglify"], function () {
 gulp.task("zip", ["dist"], function () {
   var pkg = require("./package.json");
 
-  return gulp.src([
-      pkg.config.dir.lib + "/components/**",
-      "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
-    ], {
-      base: "./" + pkg.config.dir.lib
-    })
-    .pipe(gulp.dest(pkg.config.dir.dist));
+  // Courtesy github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
+  function getFolders (dir) {
+    return fs.readdirSync(dir)
+      .filter(function (file) {
+        return fs.statSync(path.join(dir, file)).isDirectory();
+      });
+  }
+
+  var folders = getFolders(pkg.config.dir.lib + "/components");
+
+  var tasks = folders.map(function (folder) {
+    return gulp.src([
+        pkg.config.dir.lib + "/components/" + folder + "/**",
+        "!./**/test{,/**}"
+      ], {
+        base: "./" + pkg.config.dir.lib
+      })
+      .pipe(zip(folder + "-" + pkg.version + ".zip"))
+      .pipe(gulp.dest(pkg.config.dir.dist + "/components/" + folder + "/"));
+  });
+
+  return es.concat.apply(null, tasks);
 });
 
 
