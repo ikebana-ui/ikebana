@@ -172,6 +172,7 @@ gulp.task("uglify", ["lint"], function () {
     ], {
       base: "./" + pkg.config.dir.lib
     })
+    .pipe(gulp.dest(pkg.config.dir.dist)) // Keep non-uglified files
     .pipe(uglify({
       outSourceMap: true,
       preserveComments: "some"
