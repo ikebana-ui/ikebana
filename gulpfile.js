@@ -200,7 +200,7 @@ gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([
-      pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/**",
+      pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/**/*.*",
       "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
     ], {
       base: "./" + pkg.config.dir.src
@@ -227,7 +227,7 @@ gulp.task("deploy", ["build"], function () {
 
   var tasks = folders.map(function (folder) {
     return gulp.src([
-        pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/" + folder + "/**",
+        pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/" + folder + "/**/*.*",
         "!./**/test{,/**}"
       ], {
         base: "./" + pkg.config.dir.src
