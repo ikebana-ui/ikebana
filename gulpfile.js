@@ -231,5 +231,5 @@ gulp.task("deploy", ["build"], function () {
  * CI
  * CI server task alias for deployment.
  */
-gulp.task("ci", ["deploy"]);
+gulp.task("ci", ["deploy", "tag"]);
 
