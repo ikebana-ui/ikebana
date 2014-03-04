@@ -180,16 +180,12 @@ gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
  * Deploy
  * Custom task to deploy a distribution to the server.
  */
-gulp.task("deploy", function () {
+gulp.task("deploy", ["dist"], function () {
   var pkg = require("./package.json"),
       spawnGit = null;
 
   var v = "v" + pkg.version;
   var message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString();
-
-  spawnGit = spawn("git", ["checkout", "master"], { cwd: process.cwd() });
-
-  gulp.run("dist");
 
   spawnGit = spawn("git", ["checkout", "gh-pages"], { cwd: process.cwd() });
 
