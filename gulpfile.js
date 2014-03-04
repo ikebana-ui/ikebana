@@ -194,6 +194,23 @@ gulp.task("dist", ["clean", "compass", "lint", "test", "uglify"], function () {
     ], {
       base: "./" + pkg.config.dir.lib
     })
-    .pipe(zip(pkg.name + "-" + pkg.version + ".zip"))
     .pipe(gulp.dest(pkg.config.dir.dist));
 });
+
+/**
+ * Zip
+ * Compress each component into its own zip file.
+ */
+gulp.task("zip", ["dist"], function () {
+  var pkg = require("./package.json");
+
+  return gulp.src([
+      pkg.config.dir.lib + "/components/**",
+      "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
+    ], {
+      base: "./" + pkg.config.dir.lib
+    })
+    .pipe(gulp.dest(pkg.config.dir.dist));
+});
+
+
