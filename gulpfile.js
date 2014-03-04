@@ -185,7 +185,9 @@ gulp.task("deploy", ["dist"], function () {
   var v = "v" + pkg.version;
   var message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString();
 
-  git.checkout("gh-pages");
+  gulp.src("./*")
+    .pipe(git.checkout("gh-pages"));
+
   gulp.src([
     "./" + pkg.config.dir.dist,
     "./" + pkg.config.dir.doc,
