@@ -231,4 +231,11 @@ gulp.task("zip", ["dist"], function () {
   return es.concat.apply(null, tasks);
 });
 
+/**
+ * CI
+ * CI server task for deployment.
+ */
+gulp.task("ci", ["zip"], function () {
+  var pkg = require("./package.json");
+});
 

@@ -1,11 +1,15 @@
 language: node_js
 node_js:
-- '0.10'
-- '0.11'
+  - "0.10"
+  - "0.11"
 before_install:
-- npm install -g gulp
+  - "npm install -g gulp"
+before_script:
+  - "git config user.email 'travis@travis-ci.org'"
+  - "git config user.name 'travis-ci'"
+  - "git clone --quiet --branch=gh-pages https://$GH_TOKEN@github.com/$GH_REPO gh-pages"
 script:
-- gulp ci
+  - gulp ci
 env:
   global:
     - GH_REPO: "rishabhsrao/ikebana"
