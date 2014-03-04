@@ -223,14 +223,21 @@ gulp.task("deploy", ["build"], function () {
       });
   }
 
-  var folders = getFolders(pkg.config.dir.src + "/" + pkg.config.dir.cmp);
+  gulp.src([
+    pkg.config.dir.src,
+    "!./**/test{,/**}"
+  ], {
+    base: "./" + pkg.config.dir.src
+  })
+    .pipe(gulp.dest(pkg.config.dir.dist));
+
+  var folders = getFolders(pkg.config.dir.dist + "/" + pkg.config.dir.cmp);
 
   var tasks = folders.map(function (folder) {
     return gulp.src([
-        pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/" + folder + "/**/*.*",
-        "!./**/test{,/**}"
+        pkg.config.dir.dist + "/" + pkg.config.dir.cmp + "/" + folder + "/**/*.*"
       ], {
-        base: "./" + pkg.config.dir.src
+        base: "./" + pkg.config.dir.dist
       })
       .pipe(zip(folder + "-" + pkg.version + ".zip"))
       .pipe(gulp.dest(pkg.config.dir.dist + "/" + pkg.config.dir.cmp + "/" + folder + "/"));
