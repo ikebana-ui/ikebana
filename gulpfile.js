@@ -96,15 +96,16 @@ gulp.task("create", function () {
     return;
   }
 
-  return gulp.src(pkg.config.dir.tpl + "/component/**")
+  return gulp.src(pkg.config.dir.tpl + "/component/**/*.*")
     .pipe(template({
       name: name,
       pkg: pkg
     }))
+    .pipe(debug())
     .pipe(rename({
-        basename: name,
-        prefix: "",
-        suffix: ""
+      basename: name,
+      prefix: "",
+      suffix: ""
     }))
     .pipe(gulp.dest(pkg.config.dir.lib + "/components/" + name + "/"));
 
