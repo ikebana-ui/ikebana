@@ -18,6 +18,7 @@ var args     = require("yargs").argv,
     mocha    = require("gulp-mocha"),
     rename   = require("gulp-rename"),
     template = require("gulp-template"),
+    uglify   = require("gulp-uglify"),
     zip      = require("gulp-zip");
 
 /**
@@ -159,10 +160,31 @@ gulp.task("test", ["lint"], function () {
 });
 
 /**
+ * Uglify
+ * @see www.npmjs.org/package/gulp-uglify
+ */
+gulp.task("uglify", ["lint"], function () {
+  var pkg = require("./package.json");
+
+  return gulp.src([
+      pkg.config.dir.lib + "/**/*.js",
+      "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
+    ], {
+      base: "./" + pkg.config.dir.lib
+    })
+    .pipe(uglify({
+      outSourceMap: true,
+      preserveComments: "some"
+    }))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest(pkg.config.dir.dist));
+});
+
+/**
  * Dist
  * Custom task for building the latest version.
  */
-gulp.task("dist", ["clean", "compass", "lint", "test"], function () {
+gulp.task("dist", ["clean", "compass", "lint", "test", "uglify"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([
@@ -171,5 +193,6 @@ gulp.task("dist", ["clean", "compass", "lint", "test"], function () {
     ], {
       base: "./" + pkg.config.dir.lib
     })
+    .pipe(zip(pkg.name + "-" + pkg.version + ".zip"))
     .pipe(gulp.dest(pkg.config.dir.dist));
 });
