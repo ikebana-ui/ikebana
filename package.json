@@ -16,6 +16,7 @@
       "src": "lib",
       "dist": "dist",
       "doc": "doc",
+      "web": "web",
       "tpl": "template",
       "cmp": "components"
     }
