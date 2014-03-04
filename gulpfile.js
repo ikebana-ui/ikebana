@@ -65,17 +65,6 @@ gulp.task("tag", ["build", "bump"], function () {
   gulp.src("./")
     .pipe(git.commit(messages.master));
   git.tag(v, messages.master);
-
-  git.checkout("gh-pages");
-  gulp.src([
-    "./" + pkg.config.dir.dist,
-    "./" + pkg.config.dir.doc,
-    "./" + pkg.config.dir.web
-  ])
-    .pipe(git.add())
-    .pipe(git.commit(messages.ghPages));
-
-  git.push("origin", "master gh-pages", { args: "--tags" });
 });
 
 /**
@@ -174,7 +163,7 @@ gulp.task("minify", ["lint"], function () {
 });
 
 /**
- * Dist
+ * Build
  * Custom task for building the latest version.
  */
 gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
@@ -188,6 +177,21 @@ gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
     })
     .pipe(gulp.dest(pkg.config.dir.dist));
 });
+
+/**
+ * Dist
+ * Custom task to generate and push a distribution to the server.
+ */
+gulp.task("dist", ["build"], function () {
+  var pkg = require("./package.json");
+
+  var v = "v" + pkg.version;
+  var message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString();
+
+  gulp.src("./")
+    .pipe(git.commit(message));
+});
+
 
 /**
  * Deploy
