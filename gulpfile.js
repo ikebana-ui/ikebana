@@ -176,10 +176,10 @@ gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
 });
 
 /**
- * Dist
- * Custom task to generate and push a distribution to the server.
+ * Deploy
+ * Custom task to deploy a distribution to the server.
  */
-gulp.task("dist", ["build"], function () {
+gulp.task("deploy", ["dist"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version;
@@ -191,10 +191,10 @@ gulp.task("dist", ["build"], function () {
 
 
 /**
- * Deploy
- * Compress each component into its own zip file.
+ * Dist
+ * Distribute each component into its own zip file.
  */
-gulp.task("deploy", ["build"], function () {
+gulp.task("dist", ["build"], function () {
   var pkg = require("./package.json");
 
   // Courtesy github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
