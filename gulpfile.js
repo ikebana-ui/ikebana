@@ -150,7 +150,7 @@ gulp.task("lint", function () {
 
 /**
  * Dist
- * Custom task for building a distribution version.
+ * Custom task for building the latest version.
  */
 gulp.task("dist", ["clean", "lint", "compass"], function () {
   var pkg = require("./package.json");
