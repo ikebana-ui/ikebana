@@ -183,13 +183,19 @@ gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
 gulp.task("deploy", ["dist"], function () {
   var pkg = require("./package.json");
 
-  var v = "v" + pkg.version;
-  var message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString();
+  var v = "v" + pkg.version,
+      message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString(),
+      execScript = [
+        "git checkout gh-pages",
+        "git add dist doc web",
+        ("git commit -m " + message),
+        "git checkout master"
+      ].join(" ; ");
 
-  var child = exec("cat package.json", function (error, stdout, stderr) {
+  var child = exec(execScript, function (error, stdout, stderr) {
     gutil.log("stdout: ", stdout);
     gutil.log("stderr: ", stderr);
-    if (null !==error) {
+    if (null !== error) {
       gutil.log("exec error: ", error);
     }
   });
