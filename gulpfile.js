@@ -72,7 +72,7 @@ gulp.task("clean", function () {
  * Tag
  * @see www.npmjs.org/package/gulp-git
  */
-gulp.task("tag", ["dist"], function () {
+gulp.task("tag", ["dist", "bump"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version;
