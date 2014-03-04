@@ -5,12 +5,13 @@
   * @license <%= pkg.license %>
   */
 
+"use strict";
+
 var assert = require("assert");
 
 describe("Sample test set for <%= name %>", function () {
-    it("should help users write tests easily", function () {
-      // TODO Add <%= name %>'s tests
-      // E.g. assert.equal(true, true); // See visionmedia.github.io/mocha
-    });
+  it("should help users write tests easily", function () {
+    // TODO Add <%= name %>'s tests
+    // E.g. assert.equal(true, true); // See visionmedia.github.io/mocha
   });
 });
