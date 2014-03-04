@@ -1,13 +1,15 @@
 language: node_js
 node_js:
   - "0.10"
-  - "0.11"
 before_install:
   - "npm install -g gulp"
+install:
+  - "bundle install && npm install && bower install"
 before_script:
   - "cd $HOME"
   - "git clone --quiet https://$GH_TOKEN@github.com/$GH_REPO $GH_REPO_NAME"
   - "cd $GH_REPO_NAME"
+  - "git status"
   - "git config user.email 'travis@travis-ci.org'"
   - "git config user.name 'travis-ci'"
 script:
