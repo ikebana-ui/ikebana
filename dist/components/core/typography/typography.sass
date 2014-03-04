@@ -1,0 +1,35 @@
+@import "../../../ikebana"
+
+body
+	color: $text
+	font-family: $font
+	font-size: $font-size
+	line-height: $line-spacing
+
+a
+	color: $link
+	text-decoration: none
+	&:hover
+		color: lighten($link, 25%)
+		text-decoration: underline
+	&:active
+		color: lighten($link, 25%)
+
+h1, h2, h3, h4, h5, h6
+	font-weight: $highlight-weight
+
+h1
+	font-size: $font-size + $font-variation + $font-variation + $font-variation + $font-variation
+	line-height: ($font-size + $font-variation + $font-variation + $font-variation + $font-variation) * $line-spacing
+h2
+	font-size: $font-size + $font-variation + $font-variation + $font-variation
+	line-height: ($font-size + $font-variation + $font-variation + $font-variation) * $line-spacing
+h3
+	font-size: $font-size + $font-variation + $font-variation
+	line-height: ($font-size + $font-variation + $font-variation) * $line-spacing
+h4
+	font-size: $font-size + $font-variation
+	line-height: ($font-size + $font-variation) * $line-spacing
+
+header
+	@include contrasted($base-color)

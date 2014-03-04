@@ -1,0 +1,127 @@
+/* line 5, ../lib/reset.sass */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 26, ../lib/reset.sass */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 29, ../lib/reset.sass */
+body {
+  line-height: 1;
+}
+
+/* line 31, ../lib/reset.sass */
+ol, ul {
+  list-style: none;
+}
+
+/* line 33, ../lib/reset.sass */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 35, ../lib/reset.sass */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* line 39, ../lib/reset.sass */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 3, ../lib/components/core/typography/typography.sass */
+body {
+  color: #222222;
+  font-family: Arial, Helvetica;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* line 9, ../lib/components/core/typography/typography.sass */
+a {
+  color: #000066;
+  text-decoration: none;
+}
+/* line 12, ../lib/components/core/typography/typography.sass */
+a:hover {
+  color: #0000e6;
+  text-decoration: underline;
+}
+/* line 15, ../lib/components/core/typography/typography.sass */
+a:active {
+  color: #0000e6;
+}
+
+/* line 18, ../lib/components/core/typography/typography.sass */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+/* line 21, ../lib/components/core/typography/typography.sass */
+h1 {
+  font-size: 27.8px;
+  line-height: 44.48px;
+}
+
+/* line 24, ../lib/components/core/typography/typography.sass */
+h2 {
+  font-size: 24.6px;
+  line-height: 39.36px;
+}
+
+/* line 27, ../lib/components/core/typography/typography.sass */
+h3 {
+  font-size: 21.4px;
+  line-height: 34.24px;
+}
+
+/* line 30, ../lib/components/core/typography/typography.sass */
+h4 {
+  font-size: 18.2px;
+  line-height: 29.12px;
+}
+
+/* line 34, ../lib/components/core/typography/typography.sass */
+header {
+  background-color: #333333;
+  color: white;
+}
+
+/* line 3, ../lib/components/core/buttons/buttons.sass */
+button {
+  background-color: #333333;
+  color: white;
+  margin: 7.5px 15px;
+  padding: 7.5px 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid black;
+  font-weight: bold;
+}

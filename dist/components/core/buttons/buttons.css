@@ -1,0 +1,12 @@
+/* line 3, ../../../../lib/components/core/buttons/buttons.sass */
+button {
+  background-color: #333333;
+  color: white;
+  margin: 7.5px 15px;
+  padding: 7.5px 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid black;
+  font-weight: bold;
+}
