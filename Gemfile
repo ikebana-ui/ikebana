@@ -8,3 +8,6 @@ gem "compass"
 
 # bourbon.io
 gem "bourbon"
+
+# travis-ci.com
+gem "travis"
