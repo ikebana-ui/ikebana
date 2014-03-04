@@ -41,7 +41,8 @@
     "gulp-debug": "^0.2.0",
     "gulp-prompt": "^0.1.0",
     "gulp-zip": "^0.1.2",
-    "gulp-ignore": "^1.0.0"
+    "gulp-ignore": "^1.0.0",
+    "gulp-strip-debug": "^0.2.0"
   },
   "keywords": [
     "ikebana",
