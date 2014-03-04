@@ -57,14 +57,11 @@ gulp.task("tag", ["build", "bump"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version;
-  var messages = {
-    "master": ":tropical_drink: [gulp] Tagging release " + v + " on " + new Date().toUTCString(),
-    "ghPages": ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString()
-  };
+  var message = ":tropical_drink: [gulp] Tagging release " + v + " on " + new Date().toUTCString();
 
   gulp.src("./")
-    .pipe(git.commit(messages.master));
-  git.tag(v, messages.master);
+    .pipe(git.commit(message));
+  git.tag(v, message);
 });
 
 /**
