@@ -5,12 +5,19 @@ node_js:
 before_install:
   - "npm install -g gulp"
 before_script:
+  - "cd $HOME"
   - "git config user.email 'travis@travis-ci.org'"
   - "git config user.name 'travis-ci'"
-  - "git clone --quiet --branch=gh-pages https://$GH_TOKEN@github.com/$GH_REPO gh-pages"
+  - "git clone --quiet https://$GH_TOKEN@github.com/$GH_REPO $GH_REPO_NAME"
+  - "cd $GH_REPO_NAME"
 script:
-  - gulp ci
+  - "gulp ci"
+after_success:
+  -
+after_script:
+  -
 env:
   global:
+    - GH_REPO_NAME: "ikebana"
     - GH_REPO: "rishabhsrao/ikebana"
     - secure: bb2Un5Yw0Y4ufuGHI5Xe5fLQhNwmzDABgmEj0PjksqQWS0EvrMOseXHfPYhsF4JaFtHR2hm2vb0ttNYnrzsex1vTwHaV6HQYhp4E1lSOUsBHhDERvtJci0PnkZyOlyUa8Vz+KifrfihRh6bPqL9yUuigobKpy/cAV01Nl1e6Ptk=

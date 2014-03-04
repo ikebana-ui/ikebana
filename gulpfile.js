@@ -72,22 +72,18 @@ gulp.task("clean", function () {
  * Tag
  * @see www.npmjs.org/package/gulp-git
  */
-gulp.task("tag"/*, ["dist"] */, function () {
+gulp.task("tag", ["dist"], function () {
   var pkg = require("./package.json");
 
-  var message = "Tagging release v" + pkg.version;
+  var v = "v" + pkg.version;
+  var message = "Release " + v;
 
-  return gulp.src("./")
-    .pipe(git.commit(message))
-    .pipe(git.tag(v, message))
-    .pipe(git.push("origin", "master", "--tags"))
-    .pipe(gulp.dest("./"));
+  gulp.src("./")
+    .pipe(git.commit(message));
+
+  git.tag(v, message);
+  // git.push("origin", "master", "--tags");
 });
-
-/**
- * travis-ci
- */
-gulp.task("ci", ["clean", "lint", "compass", "dist"]);
 
 /**
  * Create
@@ -201,10 +197,10 @@ gulp.task("dist", ["clean", "compass", "lint", "test", "uglify"], function () {
 });
 
 /**
- * Zip
+ * Deploy
  * Compress each component into its own zip file.
  */
-gulp.task("zip", ["dist"], function () {
+gulp.task("deploy", ["bump", "dist"], function () {
   var pkg = require("./package.json");
 
   // Courtesy github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
@@ -233,9 +229,7 @@ gulp.task("zip", ["dist"], function () {
 
 /**
  * CI
- * CI server task for deployment.
+ * CI server task alias for deployment.
  */
-gulp.task("ci", ["zip"], function () {
-  var pkg = require("./package.json");
-});
+gulp.task("ci", ["deploy"]);
 
