@@ -151,7 +151,7 @@ gulp.task("lint", function () {
  * Test
  * @see www.npmjs.org/package/gulp-mocha
  */
-gulp.task("test", [ "lint" ], function () {
+gulp.task("test", ["lint"], function () {
   var pkg = require("./package.json");
 
   return gulp.src(pkg.config.dir.lib + "/**/*.js")
