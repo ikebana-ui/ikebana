@@ -1,11 +1,12 @@
 language: node_js
-
 node_js:
-  - "0.10"
-  - "0.11"
-
+- '0.10'
+- '0.11'
 before_install:
-  - npm install -g gulp
-
+- npm install -g gulp
 script:
-  - gulp ci
+- gulp ci
+env:
+  global:
+    - GH_REPO: "rishabhsrao/ikebana"
+    - secure: bb2Un5Yw0Y4ufuGHI5Xe5fLQhNwmzDABgmEj0PjksqQWS0EvrMOseXHfPYhsF4JaFtHR2hm2vb0ttNYnrzsex1vTwHaV6HQYhp4E1lSOUsBHhDERvtJci0PnkZyOlyUa8Vz+KifrfihRh6bPqL9yUuigobKpy/cAV01Nl1e6Ptk=
