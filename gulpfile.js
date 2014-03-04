@@ -159,10 +159,10 @@ gulp.task("test", ["lint"], function () {
 });
 
 /**
- * Uglify
+ * Minify
  * @see www.npmjs.org/package/gulp-uglify
  */
-gulp.task("uglify", ["lint"], function () {
+gulp.task("minify", ["lint"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([
@@ -184,7 +184,7 @@ gulp.task("uglify", ["lint"], function () {
  * Dist
  * Custom task for building the latest version.
  */
-gulp.task("build", ["clean", "compass", "lint", "test", "uglify"], function () {
+gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([
