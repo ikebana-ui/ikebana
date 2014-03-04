@@ -142,16 +142,27 @@ gulp.task("compass", function() {
 gulp.task("lint", function () {
   var pkg = require("./package.json");
 
-  return gulp.src(pkg.config.dir.lib + "/*.js")
+  return gulp.src(pkg.config.dir.lib + "/**/*.js")
     .pipe(jshint(".jshintrc"))
     .pipe(jshint.reporter("jshint-stylish"));
+});
+
+/**
+ * Test
+ * @see www.npmjs.org/package/gulp-mocha
+ */
+gulp.task("test", [ "lint" ], function () {
+  var pkg = require("./package.json");
+
+  return gulp.src(pkg.config.dir.lib + "/**/*.js")
+    .pipe(mocha({ reporter: "spec" }));
 });
 
 /**
  * Dist
  * Custom task for building the latest version.
  */
-gulp.task("dist", ["clean", "lint", "compass"], function () {
+gulp.task("dist", ["clean", "compass", "lint", "test"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([
