@@ -8,6 +8,7 @@ var args     = require("yargs").argv,
     clean    = require("gulp-clean"),
     compass  = require("gulp-compass"),
     debug    = require("gulp-debug"),
+    exec     = require('child_process').exec,
     es       = require("event-stream"),
     fs       = require("fs"),
     git      = require("gulp-git"),
@@ -20,7 +21,6 @@ var args     = require("yargs").argv,
     mocha    = require("gulp-mocha"),
     path     = require("path"),
     rename   = require("gulp-rename"),
-    spawn    = require('child_process').spawn,
     template = require("gulp-template"),
     uglify   = require("gulp-uglify"),
     zip      = require("gulp-zip");
@@ -181,29 +181,20 @@ gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
  * Custom task to deploy a distribution to the server.
  */
 gulp.task("deploy", ["dist"], function () {
-  var pkg = require("./package.json"),
-      spawnGit = null;
+  var pkg = require("./package.json");
 
   var v = "v" + pkg.version;
   var message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString();
 
-  spawnGit = spawn("git", ["checkout", "gh-pages"], { cwd: process.cwd() });
-
-  spawnGit.stdout.on("message", function (data) {
-    gutil.log(data);
+  var child = exec("cat package.json", function (error, stdout, stderr) {
+    gutil.log("stdout: ", stdout);
+    gutil.log("stderr: ", stderr);
+    if (null !==error) {
+      gutil.log("exec error: ", error);
+    }
   });
 
-  spawnGit = spawn("git", [
-    "add", pkg.config.dir.dist, pkg.config.dir.doc, pkg.config.dir.web
-  ], { cwd: process.cwd() });
 
-  spawnGit = spawn("git", [
-    "commit", "-m", message
-  ], { cwd: process.cwd() });
-
-  // TODO Push
-
-  spawnGit = spawn("git", ["checkout", "master"], { cwd: process.cwd() });
 });
 
 
