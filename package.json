@@ -16,7 +16,8 @@
       "src": "lib",
       "dist": "dist",
       "doc": "doc",
-      "tpl": "template"
+      "tpl": "template",
+      "cmp": "components"
     }
   },
   "license": "MIT",

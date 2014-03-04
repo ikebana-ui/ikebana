@@ -112,7 +112,7 @@ gulp.task("create", function () {
       prefix: "",
       suffix: ""
     }))
-    .pipe(gulp.dest(pkg.config.dir.src + "/components/" + name + "/"));
+    .pipe(gulp.dest(pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/" + name + "/"));
 
     // TODO Make this interactive using https://www.npmjs.org/package/gulp-prompt
     // SEE https://github.com/isaacs/rimraf
@@ -192,7 +192,7 @@ gulp.task("dist", ["clean", "compass", "lint", "test", "uglify"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([
-      pkg.config.dir.src + "/components/**",
+      pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/**",
       "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
     ], {
       base: "./" + pkg.config.dir.src
@@ -215,17 +215,17 @@ gulp.task("zip", ["dist"], function () {
       });
   }
 
-  var folders = getFolders(pkg.config.dir.src + "/components");
+  var folders = getFolders(pkg.config.dir.src + "/" + pkg.config.dir.cmp);
 
   var tasks = folders.map(function (folder) {
     return gulp.src([
-        pkg.config.dir.src + "/components/" + folder + "/**",
+        pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/" + folder + "/**",
         "!./**/test{,/**}"
       ], {
         base: "./" + pkg.config.dir.src
       })
       .pipe(zip(folder + "-" + pkg.version + ".zip"))
-      .pipe(gulp.dest(pkg.config.dir.dist + "/components/" + folder + "/"));
+      .pipe(gulp.dest(pkg.config.dir.dist + "/" + pkg.config.dir.cmp + "/" + folder + "/"));
   });
 
   return es.concat.apply(null, tasks);
