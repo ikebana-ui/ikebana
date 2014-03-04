@@ -72,7 +72,7 @@ gulp.task("clean", function () {
  * Tag
  * @see www.npmjs.org/package/gulp-git
  */
-gulp.task("tag", ["dist", "bump"], function () {
+gulp.task("tag", ["build", "bump"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version;
@@ -184,7 +184,7 @@ gulp.task("uglify", ["lint"], function () {
  * Dist
  * Custom task for building the latest version.
  */
-gulp.task("dist", ["clean", "compass", "lint", "test", "uglify"], function () {
+gulp.task("build", ["clean", "compass", "lint", "test", "uglify"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([
@@ -200,7 +200,7 @@ gulp.task("dist", ["clean", "compass", "lint", "test", "uglify"], function () {
  * Deploy
  * Compress each component into its own zip file.
  */
-gulp.task("deploy", ["bump", "dist"], function () {
+gulp.task("deploy", ["build"], function () {
   var pkg = require("./package.json");
 
   // Courtesy github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
