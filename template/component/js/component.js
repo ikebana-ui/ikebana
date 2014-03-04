@@ -1,9 +1,9 @@
-/**
-  * <%= name %> - <%= pkg.name %>
-  * @version v<%= pkg.version %>
-  * @link <%= pkg.url %>
-  * @license <%= pkg.license %>
-  */
+/*!
+ * <%= name %> - <%= pkg.name %>
+ * @version v<%= pkg.version %>
+ * @link <%= pkg.url %>
+ * @license <%= pkg.license %>
+ */
 
 ;(function (undefined) {
   "use strict";
