@@ -21,7 +21,7 @@ var args     = require("yargs").argv,
     zip      = require("gulp-zip");
 
 /**
- * header config for gulp-header
+ * Header configuration for gulp-header
  */
 var ikebana = {
   header: {
@@ -42,7 +42,7 @@ var ikebana = {
 /* ⚑ Project scaffolding tasks */
 
 /**
- * gulp-bump
+ * Bump
  * @see www.npmjs.org/package/gulp-bump
  */
 gulp.task("bump", function () {
@@ -54,7 +54,7 @@ gulp.task("bump", function () {
 });
 
 /**
- * gulp-clean
+ * Clean
  * @see www.npmjs.org/package/gulp-clean
  */
 gulp.task("clean", function () {
@@ -65,7 +65,7 @@ gulp.task("clean", function () {
 });
 
 /**
- * gulp-tag
+ * Tag
  * @see www.npmjs.org/package/gulp-git
  */
 gulp.task("tag"/*, ["dist"] */, function () {
@@ -120,7 +120,7 @@ gulp.task("create", function () {
 /* ⚑ Primary tasks */
 
 /**
- * gulp-compass
+ * Compass
  * @see www.npmjs.org/package/gulp-compass
  */
 gulp.task("compass", function() {
@@ -136,7 +136,7 @@ gulp.task("compass", function() {
 });
 
 /**
- * gulp-jshint
+ * Lint
  * @see www.npmjs.org/package/gulp-jshint
  */
 gulp.task("lint", function () {
