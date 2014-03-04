@@ -2,6 +2,9 @@ Ikebana
 -------
 [rishabhsrao.github.io/ikebana](http://rishabhsrao.github.io/ikebana)
 
+[![Build Status](https://travis-ci.org/rishabhsrao/ikebana.png?branch=master)](https://travis-ci.org/rishabhsrao/ikebana)
+[![Dependencies](https://david-dm.org/rishabhsrao/ikebana.png)](https://david-dm.org/rishabhsrao/ikebana)
+
 ## Introduction
 
 Ikebana (/ˌɪkɪˈbɑːnə/) is a UI component library.
