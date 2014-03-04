@@ -3,21 +3,22 @@
 
 /* ⚑ Configuration */
 
-var gulp     = require("gulp"),
-    compass  = require("gulp-compass"),
-    clean    = require("gulp-clean"),
-    git      = require("gulp-git"),
+var args     = require("yargs").argv,
     bump     = require("gulp-bump"),
-    template = require("gulp-template"),
-    args     = require("yargs").argv,
-    gulpif   = require("gulp-if"),
-    rename   = require("gulp-rename"),
-    header   = require("gulp-header"),
+    clean    = require("gulp-clean"),
+    compass  = require("gulp-compass"),
     debug    = require("gulp-debug"),
+    git      = require("gulp-git"),
+    gulp     = require("gulp"),
+    gulpif   = require("gulp-if"),
     gutil    = require("gulp-util"),
-    zip      = require("gulp-zip"),
+    header   = require("gulp-header"),
+    ignore   = require("gulp-ignore"),
     jshint   = require("gulp-jshint"),
-    ignore   = require("gulp-ignore");
+    mocha    = require("gulp-mocha"),
+    rename   = require("gulp-rename"),
+    template = require("gulp-template"),
+    zip      = require("gulp-zip");
 
 /**
  * header config for gulp-header
