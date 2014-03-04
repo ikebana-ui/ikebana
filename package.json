@@ -13,7 +13,7 @@
   },
   "config": {
     "dir": {
-      "lib": "lib",
+      "src": "lib",
       "dist": "dist",
       "doc": "doc",
       "tpl": "template"
