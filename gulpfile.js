@@ -182,10 +182,7 @@ gulp.task("minify", function () {
   return gulp.src([
       path.join(DIR.src, DIR.cmp.src, "/**/*.js"),
       "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
-    ], {
-      base: "./" + DIR.src
-    })
-    .pipe(gulp.dest(DIR.dist)) // Keep non-uglified files
+    ])
     .pipe(uglify({
       outSourceMap: true,
       preserveComments: "some"
