@@ -265,19 +265,19 @@ gulp.task("dist", ["build", "dist:sources"], function () {
       });
   }
 
-  var folders = getFolders(pkg.config.dir.dist + "/" + pkg.config.dir.cmp);
+  var folders = getFolders(path.join(DIR.dist, DIR.cmp.src));
 
-  var tasks = folders.map(function (folder) {
+  var pipechain = folders.map(function (folder) {
     return gulp.src([
-        pkg.config.dir.dist + "/" + pkg.config.dir.cmp + "/" + folder + "/**/*.*"
+        path.join(DIR.dist, DIR.cmp.src, folder, "/**/*.*")
       ], {
-        base: "./" + pkg.config.dir.dist
+        base: DIR.dist // This should be DIR.dist as we are generating the zip from the dist dir.
       })
       .pipe(zip(folder + "-" + pkg.version + ".zip"))
-      .pipe(gulp.dest(pkg.config.dir.dist + "/" + pkg.config.dir.cmp + "/" + folder + "/"));
+      .pipe(gulp.dest(path.join(DIR.dist, DIR.cmp.src, folder, "/")));
   });
 
-  return es.concat.apply(null, tasks);
+  return es.concat.apply(null, pipechain);
 });
 
 
