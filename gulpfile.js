@@ -186,7 +186,7 @@ gulp.task("minify", function () {
   // TODO Use gulp-header to add version info.
 
   return gulp.src([
-      path.join(DIR.src, DIR.cmp.src, "/**/*.js"),
+      path.join(DIR.src, "/**/*.js"),
       DIR.exclude.test
     ], {
       base: DIR.src
