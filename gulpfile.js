@@ -214,19 +214,9 @@ gulp.task("dist:sources", function () {
 
 /**
  * Build
- * Custom task for building the latest version.
+ * Alias for building the latest version.
  */
-gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
-  var pkg = require("./package.json");
-
-  return gulp.src([
-      pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/**/*.*",
-      "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
-    ], {
-      base: "./" + pkg.config.dir.src
-    })
-    .pipe(gulp.dest(pkg.config.dir.dist));
-});
+gulp.task("build", ["clean", "compass", "lint", "test", "minify"]);
 
 
 /**
