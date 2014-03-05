@@ -237,6 +237,7 @@ gulp.task("publish", ["dist", "tag"], function () {
       message = "@gulp Publishing release " + v + " on " + new Date().toUTCString(),
       execScript = [
         "git checkout gh-pages",
+        "git pull --rebase",
         "git add dist doc web",
         ("git commit -m '" + message + "'"),
         "git push --tags origin master gh-pages",
