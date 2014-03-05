@@ -275,7 +275,7 @@ gulp.task("zip", ["build", "dist:sources"], function () {
     return gulp.src([
         path.join(DIR.dist, DIR.cmp.src, folder, "/**/*.*")
       ])
-      .pipe(zip(folder + ".zip"))
+      .pipe(zip(folder + "-" + pkg.version + ".zip"))
       .pipe(gulp.dest(path.join(DIR.dist, DIR.cmp.src, folder, "/")));
   });
 
