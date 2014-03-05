@@ -81,7 +81,7 @@ gulp.task("tag", ["bump"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
-      message = "@gulp Tagging release " + v + " on " + new Date().toUTCString(),
+      message = "[gulp] Tagging release " + v + " on " + new Date().toUTCString(),
       execScript = [
         "git checkout master",
         "git add package.json bower.json",
@@ -234,7 +234,7 @@ gulp.task("publish", ["dist", "tag"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
-      message = "@gulp Publishing release " + v + " on " + new Date().toUTCString(),
+      message = "[gulp] Publishing release " + v + " on " + new Date().toUTCString(),
       execScript = [
         "git checkout gh-pages",
         "git pull --rebase origin gh-pages",
