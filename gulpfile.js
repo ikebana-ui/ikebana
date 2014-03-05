@@ -233,7 +233,7 @@ gulp.task("publish", ["dist"], function () {
         "git checkout gh-pages",
         "git add dist doc web",
         ("git commit -m '" + message + "'"),
-        "git push origin gh-pages",
+        "git push --tags origin master gh-pages",
         "git checkout master"
       ].join(" ; ");
 
