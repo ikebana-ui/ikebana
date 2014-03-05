@@ -37,7 +37,11 @@ var DIR = {
     src: "components"
   },
   bower: "bower_components",
-  npm: "node_modules"
+  npm: "node_modules",
+
+  exclude: {
+    test: "!/**/test{,/**}" // Exclude test files; @see https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
+  }
 };
 
 
