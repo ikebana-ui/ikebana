@@ -165,7 +165,9 @@ gulp.task("lint", function () {
 gulp.task("test", function () {
   var pkg = require("./package.json");
 
-  return gulp.src(pkg.config.dir.src + "/**/*.js")
+  return gulp.src([
+      path.join(DIR.src, "/**/*.js")
+    ])
     .pipe(mocha({ reporter: "spec" }));
 });
 
