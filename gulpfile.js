@@ -188,7 +188,9 @@ gulp.task("minify", function () {
   return gulp.src([
       path.join(DIR.src, DIR.cmp.src, "/**/*.js"),
       DIR.exclude.test
-    ])
+    ], {
+      base: DIR.src
+    })
     .pipe(uglify({
       outSourceMap: true,
       preserveComments: "some"
