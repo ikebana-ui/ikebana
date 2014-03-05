@@ -26,6 +26,22 @@ var args     = require("yargs").argv,
     uglify   = require("gulp-uglify"),
     zip      = require("gulp-zip");
 
+const DIR = {
+  src: "lib",
+  dist: "dist",
+  doc: "doc",
+  web: "web",
+  tpl: "template",
+  cmp: {
+    tpl: "component",
+    src: "components"
+  },
+  bower: "bower_components",
+  npm: "node_modules"
+};
+
+
+
 /* ⚑ Project scaffolding tasks */
 
 /**
