@@ -240,10 +240,10 @@ gulp.task("publish", ["dist"], function () {
       message = "[gulp] Publishing release " + v + " on " + new Date().toUTCString(),
       execScript = [
         "git checkout gh-pages",
-        "git pull --rebase origin gh-pages",
         "git add dist doc web",
         ("git commit -m '" + message + "'"),
         ("git tag --annotate " + v),
+        "git pull --rebase origin gh-pages",
         "git push --tags origin gh-pages",
         "git checkout master"
       ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
