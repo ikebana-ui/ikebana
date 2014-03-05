@@ -227,7 +227,7 @@ gulp.task("deploy", ["dist"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
-      message = ":tropical_drink: [gulp] Distribution generated with release " + v + " on " + new Date().toUTCString(),
+      message = "@gulp Distribution generated with release " + v + " on " + new Date().toUTCString(),
       execScript = [
         "git checkout gh-pages",
         "git add dist doc web",
