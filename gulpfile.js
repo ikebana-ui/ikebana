@@ -250,7 +250,7 @@ gulp.task("deploy", ["dist"], function () {
  * Dist
  * Distribute each component into its own zip file.
  */
-gulp.task("dist", ["build"], function () {
+gulp.task("dist", ["build", "dist:sources"], function () {
   var pkg = require("./package.json");
 
   // Courtesy github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
@@ -260,14 +260,6 @@ gulp.task("dist", ["build"], function () {
         return fs.statSync(path.join(dir, file)).isDirectory();
       });
   }
-
-  gulp.src([
-    pkg.config.dir.src,
-    "!./**/test{,/**}"
-  ], {
-    base: "./" + pkg.config.dir.src
-  })
-    .pipe(gulp.dest(pkg.config.dir.dist));
 
   var folders = getFolders(pkg.config.dir.dist + "/" + pkg.config.dir.cmp);
 
