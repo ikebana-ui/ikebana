@@ -83,7 +83,11 @@ gulp.task("tag", ["bump", "dist"], function () {
   var v = "v" + pkg.version;
   var message = "@gulp Tagging release " + v + " on " + new Date().toUTCString();
 
-  gulp.src("./")
+  gulp.src([
+      "package.json",
+      "bower.json"
+    ])
+    .pipe(git.add())
     .pipe(git.commit(message));
   git.tag(v, message);
 });
@@ -224,7 +228,7 @@ gulp.task("publish", ["dist"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
-      message = "@gulp Distribution generated with release " + v + " on " + new Date().toUTCString(),
+      message = "@gulp Publishing release " + v + " on " + new Date().toUTCString(),
       execScript = [
         "git checkout gh-pages",
         "git add dist doc web",
