@@ -292,7 +292,7 @@ gulp.task("dist", ["build", "zip"]);
  * Deploy (alias)
  * Used by travis-ci.
  */
-gulp.task("deploy", ["dist", "publish", "tag"]);
+gulp.task("deploy", ["dist", "tag", "publish"]);
 
 
 /**
