@@ -76,11 +76,8 @@ gulp.task("clean", function () {
 /**
  * Tag
  * @see www.npmjs.org/package/gulp-git
- * @deprecated Tagging on the master branch is not required.
  */
 gulp.task("tag", ["bump"], function () {
-  gutil.log(gutil.colors.red("WARNING: This task has been deprecated and will be removed in a future version."));
-
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
@@ -233,16 +230,15 @@ gulp.task("dist:sources", function () {
  * Publish
  * Custom task to publish a distribution to the server.
  */
-gulp.task("publish", ["dist"], function () {
+gulp.task("publish", ["dist", "tag"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
       message = "[gulp] Publishing release " + v + " on " + new Date().toUTCString(),
       execScript = [
         "git checkout gh-pages",
-        "git add dist doc web",
+        ("git add " + DIR.dist + " " + DIR.doc + " " + DIR.web),
         ("git commit -m '" + message + "'"),
-        ("git tag --annotate " + v),
         "git pull --rebase origin gh-pages",
         "git push --tags origin gh-pages",
         "git checkout master"
