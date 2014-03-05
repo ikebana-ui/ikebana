@@ -198,10 +198,10 @@ gulp.task("minify", function () {
 });
 
 /**
- * Dist-Source
+ * dist:sources
  * Copies source files to dist for end-users who want to develop with sources.
  */
-gulp.task("dist-source", function () {
+gulp.task("dist:sources", function () {
   var pkg = require("./package.json");
 
   return gulp.src([
