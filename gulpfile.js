@@ -180,18 +180,18 @@ gulp.task("minify", function () {
   var pkg = require("./package.json");
 
   return gulp.src([
-      pkg.config.dir.src + "/**/*.js",
+      DIR.src + "/**/*.js",
       "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
     ], {
-      base: "./" + pkg.config.dir.src
+      base: "./" + DIR.src
     })
-    .pipe(gulp.dest(pkg.config.dir.dist)) // Keep non-uglified files
+    .pipe(gulp.dest(DIR.dist)) // Keep non-uglified files
     .pipe(uglify({
       outSourceMap: true,
       preserveComments: "some"
     }))
     .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest(pkg.config.dir.dist));
+    .pipe(gulp.dest(DIR.dist));
 });
 
 
