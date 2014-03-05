@@ -76,8 +76,11 @@ gulp.task("clean", function () {
 /**
  * Tag
  * @see www.npmjs.org/package/gulp-git
+ * @deprecated Tagging on the master branch is not required.
  */
 gulp.task("tag", ["bump"], function () {
+  gutil.log(gutil.colors.red("WARNING: This task has been deprecated and will be removed in a future version."));
+
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
@@ -230,7 +233,7 @@ gulp.task("dist:sources", function () {
  * Publish
  * Custom task to publish a distribution to the server.
  */
-gulp.task("publish", ["dist", "tag"], function () {
+gulp.task("publish", ["dist"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
@@ -240,6 +243,7 @@ gulp.task("publish", ["dist", "tag"], function () {
         "git pull --rebase origin gh-pages",
         "git add dist doc web",
         ("git commit -m '" + message + "'"),
+        ("git tag --annotate " + v),
         "git push --tags origin gh-pages",
         "git checkout master"
       ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
