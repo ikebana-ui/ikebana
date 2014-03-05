@@ -180,7 +180,7 @@ gulp.task("minify", function () {
   var pkg = require("./package.json");
 
   return gulp.src([
-      DIR.src + "/**/*.js",
+      path.join(DIR.src, DIR.cmp.src, "/**/*.js"),
       "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
     ], {
       base: "./" + DIR.src
