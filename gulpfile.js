@@ -76,8 +76,12 @@ gulp.task("clean", function () {
 /**
  * Tag
  * @see www.npmjs.org/package/gulp-git
+ * @deprecated
  */
 gulp.task("tag", ["bump"], function () {
+  gutil.log(gutil.colors.red("WARNING: This task has been deprecated and will not run. It will be removed in a future release."));
+  return;
+
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
@@ -229,8 +233,12 @@ gulp.task("dist:sources", function () {
 /**
  * Publish
  * Custom task to publish a distribution to the server.
+ * @deprecated
  */
 gulp.task("publish", ["dist", "tag"], function () {
+  gutil.log(gutil.colors.red("WARNING: This task has been deprecated and will not run. It will be removed in a future release."));
+  return;
+
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
