@@ -122,7 +122,11 @@ gulp.task("compass", function() {
 gulp.task("lint", function () {
   var pkg = require("./package.json");
 
-  return gulp.src(pkg.config.dir.src + "/**/*.js")
+  return gulp.src([
+      pkg.config.dir.src + "/**/*.js",
+      "!./bower_component/**",
+      "!./node_modules/**"
+    ])
     .pipe(jshint(".jshintrc"))
     .pipe(jshint.reporter("jshint-stylish"));
 });
