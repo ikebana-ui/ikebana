@@ -98,7 +98,7 @@ gulp.task("create", function () {
     return;
   }
 
-  return gulp.src(pkg.config.dir.tpl + "/component/**/*.*")
+  return gulp.src(path.join(DIR.tpl, DIR.cmp.tpl, "/**/*.*"))
     .pipe(template({
       name: name,
       pkg: pkg
@@ -108,7 +108,7 @@ gulp.task("create", function () {
       prefix: "",
       suffix: ""
     }))
-    .pipe(gulp.dest(pkg.config.dir.src + "/" + pkg.config.dir.cmp + "/" + name + "/"));
+    .pipe(gulp.dest(path.join(DIR.src, DIR.cmp.src, name, "/")));
 
     // TODO Make this interactive using https://www.npmjs.org/package/gulp-prompt
     // SEE https://github.com/isaacs/rimraf
