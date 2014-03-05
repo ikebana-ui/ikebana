@@ -64,7 +64,7 @@ gulp.task("bump", function () {
 gulp.task("clean", function () {
   var pkg = require("./package.json");
 
-  return gulp.src([pkg.config.dir.dist], { read: false })
+  return gulp.src([DIR.dist], { read: false })
     .pipe(clean());
 });
 
