@@ -80,16 +80,22 @@ gulp.task("clean", function () {
 gulp.task("tag", ["bump", "dist"], function () {
   var pkg = require("./package.json");
 
-  var v = "v" + pkg.version;
-  var message = "@gulp Tagging release " + v + " on " + new Date().toUTCString();
+  var v = "v" + pkg.version,
+      message = "@gulp Tagging release " + v + " on " + new Date().toUTCString(),
+      execScript = [
+        "git checkout master",
+        "git add package.json bower.json",
+        ("git commit -m '" + message + "'"),
+        ("git tag --annotate " + v),
+      ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
 
-  gulp.src([
-      "package.json",
-      "bower.json"
-    ])
-    .pipe(git.add())
-    .pipe(git.commit(message));
-  git.tag(v, message);
+  var child = exec(execScript, function (error, stdout, stderr) {
+    gutil.log("stdout: ", stdout);
+    gutil.log("stderr: ", stderr);
+    if (null !== error) {
+      gutil.log("exec error: ", error);
+    }
+  });
 });
 
 
