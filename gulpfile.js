@@ -77,7 +77,7 @@ gulp.task("clean", function () {
  * Tag
  * @see www.npmjs.org/package/gulp-git
  */
-gulp.task("tag", ["bump", "dist"], function () {
+gulp.task("tag", ["bump"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
@@ -230,7 +230,7 @@ gulp.task("dist:sources", function () {
  * Publish
  * Custom task to publish a distribution to the server.
  */
-gulp.task("publish", ["dist"], function () {
+gulp.task("publish", ["dist", "tag"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
@@ -298,7 +298,7 @@ gulp.task("dist", ["build", "zip"]);
  * Deploy (alias)
  * Used by travis-ci.
  */
-gulp.task("deploy", ["dist", "tag", "publish"]);
+gulp.task("deploy", ["dist", "publish"]);
 
 
 /**
