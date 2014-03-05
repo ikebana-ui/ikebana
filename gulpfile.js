@@ -128,15 +128,15 @@ gulp.task("compass", function() {
   var pkg = require("./package.json");
 
   return gulp.src([
-      pkg.config.dir.src + "/**/*.scss",
-      pkg.config.dir.src + "/**/*.sass"
+      DIR.src + "/**/*.scss",
+      DIR.src + "/**/*.sass"
     ])
     .pipe(compass({
       style: "expanded", // Output style; ["nested" | "compact" | "compressed" | "expanded"]
-      css: pkg.config.dir.dist,
-      sass: pkg.config.dir.src
+      css: DIR.dist,
+      sass: DIR.src
     }))
-    .pipe(gulp.dest(pkg.config.dir.dist));
+    .pipe(gulp.dest(DIR.dist));
 });
 
 
