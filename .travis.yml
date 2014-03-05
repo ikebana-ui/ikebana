@@ -12,7 +12,8 @@ before_script:
   - "git config user.email 'travis@travis-ci.org'"
   - "git config user.name 'travis-ci'"
 script:
-  - "gulp ci"
+  - "gulp clean"
+  - "gulp deploy"
 after_success:
   -
 after_script:
