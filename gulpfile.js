@@ -263,10 +263,8 @@ gulp.task("zip", ["build", "dist:sources"], function () {
   var pipechain = folders.map(function (folder) {
     return gulp.src([
         path.join(DIR.dist, DIR.cmp.src, folder, "/**/*.*")
-      ], {
-        base: DIR.dist // This should be DIR.dist as we are generating the zip from the dist dir.
-      })
-      .pipe(zip(folder + "-" + pkg.version + ".zip"))
+      ])
+      .pipe(zip(folder + ".zip"))
       .pipe(gulp.dest(path.join(DIR.dist, DIR.cmp.src, folder, "/")));
   });
 
