@@ -1,22 +1,15 @@
-Ikebana
--------
-[rishabhsrao.github.io/ikebana](http://rishabhsrao.github.io/ikebana)
-
-[![Build Status](https://travis-ci.org/rishabhsrao/ikebana.png?branch=master)](https://travis-ci.org/rishabhsrao/ikebana)
-[![Dependencies](https://david-dm.org/rishabhsrao/ikebana.png)](https://david-dm.org/rishabhsrao/ikebana)
-
-## Introduction
-
-Ikebana (/ˌɪkɪˈbɑːnə/) is a UI component library.
+# Ikebana [![Build Status](https://travis-ci.org/rishabhsrao/ikebana.png?branch=master)](https://travis-ci.org/rishabhsrao/ikebana) [![Dependencies](https://david-dm.org/rishabhsrao/ikebana.png)](https://david-dm.org/rishabhsrao/ikebana)
+> Ikebana (/ˌɪkɪˈbɑːnə/) is a UI component library.
+> [rishabhsrao.github.io/ikebana](http://rishabhsrao.github.io/ikebana)
 
 ## Getting started
 
-Ikebana components can be installed using [Bower](http://bower.io) from `http://rishabhsrao.github.io/ikebana/dist/<major.minor.patch>/<component-name>`.
+Ikebana components can be installed using [Bower](http://bower.io) from `http://rishabhsrao.github.io/ikebana/dist/<component-name>.zip`.
 
-For example, to install the **Button** component v0.0.1...
+For example, to install the latest version **Button** component...
 
 ```
-    bower install `http://rishabhsrao.github.io/ikebana/dist/0.0.1/button`
+    bower install `http://rishabhsrao.github.io/ikebana/dist/components/button.zip`
 ```
 
 ## Building from sources
