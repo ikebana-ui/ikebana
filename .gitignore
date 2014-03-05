@@ -2,7 +2,6 @@
 doc
 dist
 web
-lib/bower_components
 
 # Created by http://www.gitignore.io
 
@@ -23,3 +22,6 @@ Thumbs.db
 
 ### Ruby ###
 .bundle
+
+### Bower ###
+bower_components
