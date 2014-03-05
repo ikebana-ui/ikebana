@@ -273,22 +273,20 @@ gulp.task("zip", ["build", "dist:sources"], function () {
 
 
 /**
- * Build
- * Alias for building the latest version.
+ * Build (alias)
  */
 gulp.task("build", ["clean", "compass", "lint", "test", "minify"]);
 
 
 /**
- * Dist
- * Alias for distributing the latest version.
+ * Dist (alias)
  */
 gulp.task("dist", ["build", "zip"]);
 
 
 /**
- * Deploy
- * Alias for deploying the latest version.
+ * Deploy (alias)
+ * Used by travis-ci.
  */
 gulp.task("deploy", ["dist", "publish", "tag"]);
 
@@ -302,5 +300,5 @@ gulp.task("default", function () {
   Object.keys(gulp.tasks).forEach(function (taskName) {
     gutil.log("\t", gutil.colors.yellow(taskName));
   });
-  gutil.log("Use", gutil.colors.green("gulp build"), "to get started.");
+  gutil.log("Use", gutil.colors.green("gulp dist"), "to get started.");
 });
