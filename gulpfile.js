@@ -39,6 +39,7 @@ gulp.task("bump", function () {
     .pipe(gulp.dest("./"));
 });
 
+
 /**
  * Clean
  * @see www.npmjs.org/package/gulp-clean
@@ -49,6 +50,7 @@ gulp.task("clean", function () {
   return gulp.src([pkg.config.dir.dist], { read: false })
     .pipe(clean());
 });
+
 
 /**
  * Tag
@@ -64,6 +66,7 @@ gulp.task("tag", ["bump", "build"], function () {
     .pipe(git.commit(message));
   git.tag(v, message);
 });
+
 
 /**
  * Create
@@ -115,6 +118,7 @@ gulp.task("compass", function() {
     .pipe(gulp.dest(pkg.config.dir.dist));
 });
 
+
 /**
  * Lint
  * @see www.npmjs.org/package/gulp-jshint
@@ -131,6 +135,7 @@ gulp.task("lint", function () {
     .pipe(jshint.reporter("jshint-stylish"));
 });
 
+
 /**
  * Test
  * @see www.npmjs.org/package/gulp-mocha
@@ -141,6 +146,7 @@ gulp.task("test", function () {
   return gulp.src(pkg.config.dir.src + "/**/*.js")
     .pipe(mocha({ reporter: "spec" }));
 });
+
 
 /**
  * Minify
@@ -164,6 +170,7 @@ gulp.task("minify", function () {
     .pipe(gulp.dest(pkg.config.dir.dist));
 });
 
+
 /**
  * Build
  * Custom task for building the latest version.
@@ -179,6 +186,7 @@ gulp.task("build", ["clean", "compass", "lint", "test", "minify"], function () {
     })
     .pipe(gulp.dest(pkg.config.dir.dist));
 });
+
 
 /**
  * Deploy
@@ -204,8 +212,6 @@ gulp.task("deploy", ["dist"], function () {
       gutil.log("exec error: ", error);
     }
   });
-
-
 });
 
 
@@ -246,6 +252,7 @@ gulp.task("dist", ["build"], function () {
 
   return es.concat.apply(null, tasks);
 });
+
 
 /**
  * CI
