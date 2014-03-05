@@ -251,10 +251,10 @@ gulp.task("deploy", ["dist"], function () {
 
 
 /**
- * Dist
- * Distribute each component into its own zip file.
+ * Zip
+ * Zip each component into its own zip file.
  */
-gulp.task("dist", ["build", "dist:sources"], function () {
+gulp.task("zip", ["build", "dist:sources"], function () {
   var pkg = require("./package.json");
 
   // Courtesy github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
