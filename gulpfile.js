@@ -104,6 +104,31 @@ gulp.task("tag", ["bump"], function () {
 
 
 /**
+ * bump:commit
+ * Commits package.json and bower.json after the bump.
+ */
+gulp.task("bump:commit", ["bump"], function () {
+  var pkg = require("./package.json");
+
+  var v = "v" + pkg.version,
+      message = "[gulp] Release " + v + " on " + new Date().toUTCString(),
+      execScript = [
+        "git checkout master",
+        "git add package.json bower.json",
+        ("git commit -m '" + message + "'"),
+      ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
+
+  var child = exec(execScript, function (error, stdout, stderr) {
+    gutil.log("stdout: ", stdout);
+    gutil.log("stderr: ", stderr);
+    if (null !== error) {
+      gutil.log("exec error: ", error);
+    }
+  });
+});
+
+
+/**
  * Create
  * Custom task to create a new component for development.
  */
@@ -293,6 +318,7 @@ gulp.task("zip", ["build", "dist:sources"], function () {
 
 /**
  * Build (alias)
+ * Used by travis-ci.
  */
 gulp.task("build", ["clean", "compass", "lint", "test", "minify"]);
 
@@ -305,9 +331,8 @@ gulp.task("dist", ["build", "zip"]);
 
 /**
  * Deploy (alias)
- * Used by travis-ci.
  */
-gulp.task("deploy", ["dist", "publish"]);
+gulp.task("deploy", ["dist", "bump:commit"]);
 
 
 /**

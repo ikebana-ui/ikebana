@@ -13,7 +13,7 @@ before_script:
   - "git config user.name 'travis-ci'"
 script:
   - "gulp clean"
-  - "gulp deploy"
+  - "gulp build"
 after_success:
   -
 after_script:
