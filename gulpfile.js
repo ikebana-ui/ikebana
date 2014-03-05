@@ -235,7 +235,7 @@ gulp.task("publish", ["dist"], function () {
         ("git commit -m '" + message + "'"),
         "git push --tags origin master gh-pages",
         "git checkout master"
-      ].join(" ; ");
+      ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
 
   var child = exec(execScript, function (error, stdout, stderr) {
     gutil.log("stdout: ", stdout);
