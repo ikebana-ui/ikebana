@@ -26,7 +26,7 @@ var args     = require("yargs").argv,
     uglify   = require("gulp-uglify"),
     zip      = require("gulp-zip");
 
-const DIR = {
+var DIR = {
   src: "lib",
   dist: "dist",
   doc: "doc",
