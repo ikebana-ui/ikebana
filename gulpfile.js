@@ -98,7 +98,9 @@ gulp.task("create", function () {
     return;
   }
 
-  return gulp.src(path.join(DIR.tpl, DIR.cmp.tpl, "/**/*.*"))
+  return gulp.src([
+      path.join(DIR.tpl, DIR.cmp.tpl, "/**/*.*")
+    ])
     .pipe(template({
       name: name,
       pkg: pkg
