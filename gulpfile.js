@@ -9,7 +9,7 @@ var args     = require("yargs").argv,
     clean    = require("gulp-clean"),
     compass  = require("gulp-compass"),
     debug    = require("gulp-debug"),
-    exec     = require('child_process').exec,
+    exec     = require("child_process").exec,
     es       = require("event-stream"),
     fs       = require("fs"),
     git      = require("gulp-git"),
@@ -77,7 +77,7 @@ gulp.task("clean", function () {
  * Tag
  * @see www.npmjs.org/package/gulp-git
  */
-gulp.task("tag", ["bump", "build"], function () {
+gulp.task("tag", ["bump", "dist"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version;
@@ -200,7 +200,7 @@ gulp.task("minify", function () {
 });
 
 /**
- * dist:sources
+ * Dist:Sources
  * Copies source files to dist for end-users who want to develop with sources.
  */
 gulp.task("dist:sources", function () {
@@ -217,17 +217,10 @@ gulp.task("dist:sources", function () {
 
 
 /**
- * Build
- * Alias for building the latest version.
+ * Publish
+ * Custom task to publish a distribution to the server.
  */
-gulp.task("build", ["clean", "compass", "lint", "test", "minify"]);
-
-
-/**
- * Deploy
- * Custom task to deploy a distribution to the server.
- */
-gulp.task("deploy", ["dist"], function () {
+gulp.task("publish", ["dist"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
@@ -282,7 +275,34 @@ gulp.task("zip", ["build", "dist:sources"], function () {
 
 
 /**
- * CI
- * CI server task alias for deployment.
+ * Build
+ * Alias for building the latest version.
  */
-gulp.task("ci", ["tag", "deploy"]);
+gulp.task("build", ["clean", "compass", "lint", "test", "minify"]);
+
+
+/**
+ * Dist
+ * Alias for distributing the latest version.
+ */
+gulp.task("dist", ["build", "zip"]);
+
+
+/**
+ * Deploy
+ * Alias for deploying the latest version.
+ */
+gulp.task("deploy", ["dist", "publish", "tag"]);
+
+
+/**
+ * Default
+ * List all available tasks.
+ */
+gulp.task("default", function () {
+  gutil.log("Available tasks:");
+  Object.keys(gulp.tasks).forEach(function (taskName) {
+    gutil.log("\t", gutil.colors.yellow(taskName));
+  });
+  gutil.log("Use", gutil.colors.green("gulp build"), "to get started.");
+});
