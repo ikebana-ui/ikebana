@@ -127,7 +127,10 @@ gulp.task("create", function () {
 gulp.task("compass", function() {
   var pkg = require("./package.json");
 
-  return gulp.src([pkg.config.dir.src + "/**/*.scss", pkg.config.dir.src + "/**/*.sass"])
+  return gulp.src([
+      pkg.config.dir.src + "/**/*.scss",
+      pkg.config.dir.src + "/**/*.sass"
+    ])
     .pipe(compass({
       style: "expanded", // Output style; ["nested" | "compact" | "compressed" | "expanded"]
       css: pkg.config.dir.dist,
