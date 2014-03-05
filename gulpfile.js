@@ -207,7 +207,9 @@ gulp.task("dist:sources", function () {
   return gulp.src([
       path.join(DIR.src, DIR.cmp.src, "/**/*.*"),
       DIR.exclude.test
-    ])
+    ], {
+      base: DIR.src
+    })
     .pipe(gulp.dest(DIR.dist));
 });
 
