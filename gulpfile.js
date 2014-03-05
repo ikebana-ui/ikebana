@@ -135,7 +135,7 @@ gulp.task("lint", function () {
  * Test
  * @see www.npmjs.org/package/gulp-mocha
  */
-gulp.task("test", ["lint"], function () {
+gulp.task("test", function () {
   var pkg = require("./package.json");
 
   return gulp.src(pkg.config.dir.src + "/**/*.js")
@@ -146,7 +146,7 @@ gulp.task("test", ["lint"], function () {
  * Minify
  * @see www.npmjs.org/package/gulp-uglify
  */
-gulp.task("minify", ["lint"], function () {
+gulp.task("minify", function () {
   var pkg = require("./package.json");
 
   return gulp.src([
