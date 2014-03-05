@@ -148,9 +148,8 @@ gulp.task("lint", function () {
   var pkg = require("./package.json");
 
   return gulp.src([
-      pkg.config.dir.src + "/**/*.js",
-      "!./bower_component/**",
-      "!./node_modules/**"
+      path.join(DIR.src, "/**/*.js"),
+      "!/**/test{,/**}"
     ])
     .pipe(jshint(".jshintrc"))
     .pipe(jshint.reporter("jshint-stylish"));
