@@ -20,3 +20,6 @@ Thumbs.db
 
 ### Ruby ###
 .bundle
+
+### Bower ###
+bower_components
