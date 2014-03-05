@@ -128,8 +128,8 @@ gulp.task("compass", function() {
   var pkg = require("./package.json");
 
   return gulp.src([
-      DIR.src + "/**/*.scss",
-      DIR.src + "/**/*.sass"
+      path.join(DIR.src, "/**/*.scss"),
+      path.join(DIR.src, "/**/*.sass")
     ])
     .pipe(compass({
       style: "expanded", // Output style; ["nested" | "compact" | "compressed" | "expanded"]
