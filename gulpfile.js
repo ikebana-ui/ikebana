@@ -179,9 +179,11 @@ gulp.task("test", function () {
 gulp.task("minify", function () {
   var pkg = require("./package.json");
 
+  // TODO Use gulp-header to add version info.
+
   return gulp.src([
       path.join(DIR.src, DIR.cmp.src, "/**/*.js"),
-      "!./**/test{,/**}" // See https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
+      "!./**/test{,/**}" // Exclude test files; @see https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
     ])
     .pipe(uglify({
       outSourceMap: true,
