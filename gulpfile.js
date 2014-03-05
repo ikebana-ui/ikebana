@@ -155,7 +155,7 @@ gulp.task("lint", function () {
 
   return gulp.src([
       path.join(DIR.src, "/**/*.js"),
-      "!/**/test{,/**}"
+      DIR.exclude.test
     ])
     .pipe(jshint(".jshintrc"))
     .pipe(jshint.reporter("jshint-stylish"));
@@ -187,7 +187,7 @@ gulp.task("minify", function () {
 
   return gulp.src([
       path.join(DIR.src, DIR.cmp.src, "/**/*.js"),
-      "!./**/test{,/**}" // Exclude test files; @see https://github.com/gulpjs/gulp/issues/165#issuecomment-32613179
+      DIR.exclude.test
     ])
     .pipe(uglify({
       outSourceMap: true,
