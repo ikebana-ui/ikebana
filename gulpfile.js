@@ -105,7 +105,7 @@ gulp.task("tag", ["bump"], function () {
 
 /**
  * bump:tag
- * Tags the release after bump:commit.
+ * Tags the release after bump:commit and pushes it to master.
  */
 gulp.task("bump:tag", ["bump:commit"], function () {
   var pkg = require("./package.json");
@@ -113,9 +113,8 @@ gulp.task("bump:tag", ["bump:commit"], function () {
   var v = "v" + pkg.version,
       message = "[gulp] Release " + v;
 
-  git.tag(v, message)
-    .pipe(git.push("origin", "master", "--tags"))
-    .pipe(gulp.dest("./"));
+  git.tag(v, message);
+  git.push("origin", "master", "--tags"));
 });
 
 
