@@ -111,8 +111,16 @@ gulp.task("bump:tag", ["bump"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
-      message = "[gulp] Release " + v + " on " + new Date().toUTCString(),
-      execScript = [
+      message = "[gulp] Release " + v + " on " + (new Date().toUTCString());
+
+  return gulp.src("./")
+    .pipe(git.commit(message))
+    .pipe(git.tag(v, message))
+    .pipe(git.push("origin", "master", "--tags"))
+    .pipe(gulp.dest("./"));
+
+  /*
+  var execScript = [
         "git checkout master",
         "git add package.json bower.json",
         ("git commit -m '" + message + "'"),
@@ -130,6 +138,7 @@ gulp.task("bump:tag", ["bump"], function () {
   });
 
   gutil.log(gutil.colors.blue("All done!"), "Use", gutil.colors.blue("git push --tags origin master"), "to push the newly created tag,", gutil.colors.red(v), "to the server.");
+  */
 });
 
 
