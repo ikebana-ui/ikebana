@@ -119,6 +119,8 @@ gulp.task("bump:tag", ["bump"], function () {
         ("git tag --annotate " + v),
       ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
 
+  gutil.log("Execting", execScript);
+
   var child = exec(execScript, function (error, stdout, stderr) {
     gutil.log("stdout: ", stdout);
     gutil.log("stderr: ", stderr);
