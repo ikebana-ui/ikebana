@@ -115,6 +115,8 @@ gulp.task("bump:tag", ["bump:commit"], function () {
 
   git.tag(v, message);
   git.push("origin", "master", "--tags");
+
+  return;
 });
 
 
@@ -130,8 +132,8 @@ gulp.task("bump:commit", ["bump"], function () {
 
   return gulp.src("bower.json")
     .pipe(git.add())
-    .pipe(gulp.src("package.json"))
-    .pipe(git.add())
+    // .pipe(gulp.src("package.json"))
+    // .pipe(git.add())
     .pipe(git.commit(message));
 
   /*
