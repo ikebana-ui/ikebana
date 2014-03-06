@@ -104,10 +104,10 @@ gulp.task("tag", ["bump"], function () {
 
 
 /**
- * bump:commit
- * Commits package.json and bower.json after the bump.
+ * bump:tag
+ * Commits package.json & bower.json and tags after the bump.
  */
-gulp.task("bump:commit", ["bump"], function () {
+gulp.task("bump:tag", ["bump"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
@@ -116,6 +116,7 @@ gulp.task("bump:commit", ["bump"], function () {
         "git checkout master",
         "git add package.json bower.json",
         ("git commit -m '" + message + "'"),
+        ("git tag --annotate " + v),
       ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
 
   var child = exec(execScript, function (error, stdout, stderr) {
@@ -125,6 +126,8 @@ gulp.task("bump:commit", ["bump"], function () {
       gutil.log("exec error: ", error);
     }
   });
+
+  gutil.log(gutil.colors.blue("All done!"), "Use", gutil.colors.blue("git push --tags origin master"), "to push the newly created tag,", gutil.colors.red(v), "to the server.");
 });
 
 
@@ -332,7 +335,7 @@ gulp.task("dist", ["build", "zip"]);
 /**
  * Deploy (alias)
  */
-gulp.task("deploy", ["dist", "bump:commit"]);
+gulp.task("deploy", ["dist", "bump:tag"]);
 
 
 /**
