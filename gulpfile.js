@@ -114,7 +114,7 @@ gulp.task("bump:tag", ["bump:commit"], function () {
       message = "[gulp] Release " + v;
 
   git.tag(v, message);
-  git.push("origin", "master", "--tags"));
+  git.push("origin", "master", "--tags");
 });
 
 
