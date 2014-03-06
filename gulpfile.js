@@ -129,10 +129,9 @@ gulp.task("bump:commit", ["bump"], function () {
   var v = "v" + pkg.version,
       message = "[gulp] Bumped to " + v;
 
-  return gulp.src([
-      "bower.json",
-      "package.json"
-    ])
+  return gulp.src("bower.json")
+    .pipe(git.add())
+    .pipe(gulp.src("package.json"))
     .pipe(git.add())
     .pipe(git.commit(message));
 
