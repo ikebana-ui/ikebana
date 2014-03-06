@@ -237,7 +237,7 @@ gulp.task("lint", function () {
  * Test
  * @see www.npmjs.org/package/gulp-mocha
  */
-gulp.task("test", function () {
+gulp.task("test", ["lint"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([
@@ -251,7 +251,7 @@ gulp.task("test", function () {
  * Minify
  * @see www.npmjs.org/package/gulp-uglify
  */
-gulp.task("minify", function () {
+gulp.task("minify", ["test"], function () {
   var pkg = require("./package.json");
 
   // TODO Use gulp-header to add version info.
@@ -323,7 +323,7 @@ gulp.task("publish", ["dist", "tag"], function () {
  * Zip
  * Zip each component into its own zip file.
  */
-gulp.task("zip", ["build", "dist:sources"], function () {
+gulp.task("zip", ["build"], function () {
   var pkg = require("./package.json");
 
   // Courtesy github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
@@ -352,13 +352,13 @@ gulp.task("zip", ["build", "dist:sources"], function () {
  * Build (alias)
  * Used by travis-ci.
  */
-gulp.task("build", ["clean", "compass", "lint", "test", "minify"]);
+gulp.task("build", ["compass", "minify", "dist:sources"]);
 
 
 /**
  * Dist (alias)
  */
-gulp.task("dist", ["build", "zip"]);
+gulp.task("dist", ["zip"]);
 
 
 /**
