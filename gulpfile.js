@@ -105,19 +105,36 @@ gulp.task("tag", ["bump"], function () {
 
 /**
  * bump:tag
- * Commits package.json & bower.json and tags after the bump.
+ * Tags the release after bump:commit.
  */
-gulp.task("bump:tag", ["bump"], function () {
+gulp.task("bump:tag", ["bump:commit"], function () {
   var pkg = require("./package.json");
 
   var v = "v" + pkg.version,
-      message = "[gulp] Release " + v + " on " + (new Date().toUTCString());
+      message = "[gulp] Release " + v;
 
-  return gulp.src("./")
-    .pipe(git.commit(message))
-    .pipe(git.tag(v, message))
+  git.tag(v, message)
     .pipe(git.push("origin", "master", "--tags"))
     .pipe(gulp.dest("./"));
+});
+
+
+/**
+ * bump:commit
+ * Commits package.json & bower.json after the bump.
+ */
+gulp.task("bump:commit", ["bump"], function () {
+  var pkg = require("./package.json");
+
+  var v = "v" + pkg.version,
+      message = "[gulp] Bumped to " + v;
+
+  return gulp.src([
+      "bower.json",
+      "package.json"
+    ])
+    .pipe(git.add())
+    .pipe(git.commit(message));
 
   /*
   var execScript = [
