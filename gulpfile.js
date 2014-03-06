@@ -132,8 +132,9 @@ gulp.task("bump:commit", ["bump"], function () {
 
   return gulp.src("bower.json")
     .pipe(git.add())
-    // .pipe(gulp.src("package.json"))
-    // .pipe(git.add())
+    .pipe(git.commit(message))
+    .pipe(gulp.src("package.json"))
+    .pipe(git.add())
     .pipe(git.commit(message));
 
   /*
