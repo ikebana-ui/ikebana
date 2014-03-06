@@ -52,7 +52,7 @@ var DIR = {
  * Bump
  * @see www.npmjs.org/package/gulp-bump
  */
-gulp.task("bump", function () {
+gulp.task("bump", ["dist"], function () {
   var bumpType = process.env.BUMP || "patch"; // major.minor.patch
 
   return gulp.src(["./package.json", "./bower.json"])
@@ -361,7 +361,7 @@ gulp.task("dist", ["build", "zip"]);
 /**
  * Deploy (alias)
  */
-gulp.task("deploy", ["dist", "bump:tag"]);
+gulp.task("deploy", ["bump:tag"]);
 
 
 /**
