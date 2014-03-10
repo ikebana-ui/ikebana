@@ -40,7 +40,7 @@ Use `gulp create --name <component-name>` to create a new component. This will c
 
 ### Developing a component
 
-Use `gulp server` to fire up a live-reload server. You can then open `http://localhost:4000/<component-name>/<component-name>.html` and start development. The live-reload server will watch the `lib/components` folder and reload your browser upon detecting changes.
+Use `gulp server` to fire up a live-reload server. You can then open `http://localhost:4000/<component-name>/<component-name>.html` and start development. The live-reload server will watch the `lib/components` directory and reload your browser upon detecting changes.
 
 ### Distributing a component
 
