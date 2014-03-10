@@ -19,7 +19,7 @@ bower install `http://ikebana-ui.github.io/ikebana/dist/components/button.zip`
 
 ## Developing
 
-To build Ikebana from sources, ensure that you have [Node.js](http://nodejs.org), [Bundler](http://bundler.io) and [Bower](http://bower.io) run...
+Ensure that you have [Node.js](http://nodejs.org), [Bundler](http://bundler.io) and [Bower](http://bower.io). Next, run...
 
 ```
 git clone git@github.com:ikebana-ui/ikebana.git
