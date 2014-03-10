@@ -32,7 +32,7 @@ Once done, the `dist` directory will have the built artefacts in the `master` br
 
 ## Contributing
 
-You are welcome to contribute components to Ikebana. Please read the (Contributing)[https://github.com/ikebana-ui/ikebana/wiki/Contributing] wiki for a detailed walkthrough.
+You are welcome to contribute components to Ikebana. Please read the [Contributing](https://github.com/ikebana-ui/ikebana/wiki/Contributing) wiki for more details.
 
 ## License
 
