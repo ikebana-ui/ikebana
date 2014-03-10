@@ -21,7 +21,6 @@ after_script:
 env:
   global:
     - GH_REPO_NAME: "ikebana"
-    - GH_REPO: "rishabhsrao/ikebana"
-    - secure: bb2Un5Yw0Y4ufuGHI5Xe5fLQhNwmzDABgmEj0PjksqQWS0EvrMOseXHfPYhsF4JaFtHR2hm2vb0ttNYnrzsex1vTwHaV6HQYhp4E1lSOUsBHhDERvtJci0PnkZyOlyUa8Vz+KifrfihRh6bPqL9yUuigobKpy/cAV01Nl1e6Ptk=
+    - GH_REPO: "ikebana-ui/ikebana"
 notifications:
   email: false

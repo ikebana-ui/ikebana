@@ -1,10 +1,10 @@
 {
   "name": "ikebana",
   "version": "0.0.21",
-  "url": "https://github.com/rishabhsrao/ikebana",
+  "url": "https://github.com/ikebana-ui/ikebana",
   "repository": {
     "type": "git",
-    "url": "git://github.com/rishabhsrao/ikebana"
+    "url": "git://github.com/ikebana-ui/ikebana"
   },
   "author": {
     "name": "ThoughtWorks, Inc.",
