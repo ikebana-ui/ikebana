@@ -4,7 +4,7 @@ node_js:
 before_install:
   - "npm install -g gulp"
 before_script:
-  - "bundle install && npm install && bower install"
+  - "bundle install && bower install"
   - "git status"
   - "git config user.email 'travis@travis-ci.org'"
   - "git config user.name 'travis-ci'"
