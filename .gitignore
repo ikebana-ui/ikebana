@@ -25,3 +25,6 @@ Thumbs.db
 
 ### Bower ###
 bower_components
+
+### Istanbul ###
+coverage
