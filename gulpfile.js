@@ -349,6 +349,48 @@ gulp.task("zip", ["build"], function () {
 
 
 /**
+ * Live-reload
+ * Uses `express`, `tiny-lr` and `connect-livereload` to set up a live-reload server.
+ */
+gulp.task("server", [], function () {
+  var express = require("express"),
+      app = express(),
+      lr = require("tiny-lr")(),
+      clr = require("connect-livereload"),
+      EXPRESS_PORT = 4000,
+      EXPRESS_ROOT = path.join(__dirname, DIR.dist, DIR.cmp.src),
+      LIVERELOAD_PORT = 35729;
+
+  app.use(clr());
+  app.use(express.static(EXPRESS_ROOT));
+  app.listen(EXPRESS_PORT);
+  lr.listen(LIVERELOAD_PORT);
+
+  // Watch all the source files and push them to the dist folder.
+  gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.scss"), ["compass"]);
+  gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.js"), ["dist:sources"]);
+  gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.html"), ["dist:sources"]);
+
+  // Watch all the dist files and reload when they are changed.
+  gulp.watch([
+    path.join(__dirname, DIR.dist, DIR.cmp.src, "/**/*.css"),
+    path.join(__dirname, DIR.dist, DIR.cmp.src, "/**/*.js"),
+    path.join(__dirname, DIR.dist, DIR.cmp.src, "/**/*.html")
+  ], function(event) {
+    var fileName = path.relative(EXPRESS_ROOT, event.path);
+
+    lr.changed({
+      body: {
+        files: [fileName]
+      }
+    });
+  });
+
+  gutil.log("Serving", gutil.colors.yellow(EXPRESS_ROOT), "at", gutil.colors.green("http://localhost:") + gutil.colors.blue(EXPRESS_PORT), "(Press", gutil.colors.red("Ctrl + C"), "to stop.)");
+});
+
+
+/**
  * Build (alias)
  * Used by travis-ci.
  */

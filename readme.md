@@ -32,7 +32,19 @@ Once done, the `dist` directory will have the built artefacts in the `master` br
 
 ## Contributing
 
-You are welcome to contribute components to Ikebana. Please read the [Contributing](https://github.com/ikebana-ui/ikebana/wiki/Contributing) wiki for more details.
+You are welcome to contribute components to Ikebana; just fork this repo and send us a pull request. Please read the [Contributing](https://github.com/ikebana-ui/ikebana/wiki/Contributing) wiki for more details.
+
+### Creating a new component
+
+Use `gulp create --name <component-name>` to create a new component. This will create a new directory under `lib/components/<component-name>`.
+
+### Developing a component
+
+Use `gulp server` to fire up a live-reload server. You can then open `http://localhost:4000/<component-name>/<component-name>.html` and start development. The live-reload server will watch the `lib/components` folder and reload your browser upon detecting changes.
+
+### Distributing a component
+
+Use `gulp dist` to create a distributable version of all the components.
 
 ## License
 
