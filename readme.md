@@ -12,7 +12,7 @@ Ikebana components can be installed using [Bower](http://bower.io) from `http://
 For example, to install the latest version of the **Button** component...
 
 ```
-bower install `http://ikebana-ui.github.io/ikebana/dist/components/button.zip`
+bower install http://ikebana-ui.github.io/ikebana/dist/components/button.zip
 ```
 
 **NOTE**: The packages are not available yet as Ikebana is still under development.
