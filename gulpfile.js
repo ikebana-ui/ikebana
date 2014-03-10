@@ -18,6 +18,7 @@ var args     = require("yargs").argv,
     gutil    = require("gulp-util"),
     header   = require("gulp-header"),
     ignore   = require("gulp-ignore"),
+    istanbul = require("gulp-istanbul"),
     jshint   = require("gulp-jshint"),
     mocha    = require("gulp-mocha"),
     path     = require("path"),
@@ -240,10 +241,25 @@ gulp.task("lint", function () {
 gulp.task("test", ["lint"], function () {
   var pkg = require("./package.json");
 
-  return gulp.src([
-      path.join(DIR.src, "/**/*.js")
-    ])
-    .pipe(mocha({ reporter: "spec" }));
+  return gulp.src([ path.join(DIR.src, "/**/*.js") ])
+    .pipe(istanbul())
+    .on("end", function () {
+      gulp.src([ path.join(DIR.src, "/**/*.js") ])
+        .pipe(mocha())
+        .pipe(istanbul.writeReports());
+    });
+});
+
+
+/**
+ * Report results to Coveralls.io
+ * @see www.npmjs.org/package/gulp-coveralls
+ */
+gulp.task("test:report:coveralls", ["test"], function () {
+  var pkg = require("./package.json");
+
+  gulp.src("coverage/**/lcov.info")
+    .pipe(coveralls());
 });
 
 
