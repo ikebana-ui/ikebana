@@ -52,7 +52,9 @@
     "gulp-coveralls": "^0.1.2",
     "connect-livereload": "^0.3.2",
     "tiny-lr": "0.0.5",
-    "express": "^3.5.0"
+    "express": "^3.5.0",
+    "gulp-istanbul": "^0.1.1",
+    "mocha-lcov-reporter": "0.0.1"
   },
   "keywords": [
     "ikebana",
