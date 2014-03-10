@@ -4,9 +4,6 @@ node_js:
 before_install:
   - "npm install -g gulp"
 before_script:
-  - "cd $HOME"
-  - "git clone --quiet https://$GH_TOKEN@github.com/$GH_REPO $GH_REPO_NAME"
-  - "cd $GH_REPO_NAME"
   - "bundle install && npm install && bower install"
   - "git status"
   - "git config user.email 'travis@travis-ci.org'"
@@ -18,9 +15,5 @@ after_success:
   - "gulp test:report:coveralls"
 after_script:
   - "echo 'Build complete!'"
-env:
-  global:
-    - GH_REPO_NAME: "ikebana"
-    - GH_REPO: "ikebana-ui/ikebana"
 notifications:
   email: false
