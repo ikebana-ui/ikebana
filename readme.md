@@ -12,21 +12,23 @@ Ikebana components can be installed using [Bower](http://bower.io) from `http://
 For example, to install the latest version of the **Button** component...
 
 ```
-    bower install `http://ikebana-ui.github.io/ikebana/dist/components/button.zip`
+bower install `http://ikebana-ui.github.io/ikebana/dist/components/button.zip`
 ```
 
-## Building from sources
+**NOTE**: The packages are not available yet as Ikebana is still under development.
 
-To build Ikebana from sources, clone this repository, satisfy all the dependencies and run `gulp`...
+## Developing
+
+To build Ikebana from sources, ensure that you have [Node.js](http://nodejs.org), [Bundler](http://bundler.io) and [Bower](http://bower.io) run...
 
 ```
-    git clone git@github.com:ikebana-ui/ikebana.git
-    cd ikebana
-    bundle install && npm install && bower install
-    gulp
+git clone git@github.com:ikebana-ui/ikebana.git
+cd ikebana
+bundle install && npm install && bower install
+gulp dist
 ```
 
-Once done, the `dist` directory will have the built artefacts.
+Once done, the `dist` directory will have the built artefacts in the `master` branch. To view other Gulp tasks, just run `gulp`.
 
 ## Contributing
 
