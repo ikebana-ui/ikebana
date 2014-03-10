@@ -370,13 +370,13 @@ gulp.task("zip", ["build"], function () {
  * Uses `express`, `tiny-lr` and `connect-livereload` to set up a live-reload server.
  */
 gulp.task("server", [], function () {
-  var express = require("express"),
-      app = express(),
-      lr = require("tiny-lr")(),
-      clr = require("connect-livereload"),
-      EXPRESS_PORT = 4000,
-      EXPRESS_ROOT = path.join(__dirname, DIR.dist, DIR.cmp.src),
-      LIVERELOAD_PORT = 35729;
+  var express       = require("express"),
+    app             = express(),
+    lr              = require("tiny-lr")(),
+    clr             = require("connect-livereload"),
+    EXPRESS_PORT    = 4000,
+    EXPRESS_ROOT    = path.join(__dirname, DIR.dist, DIR.cmp.src),
+    LIVERELOAD_PORT = 35729;
 
   app.use(clr());
   app.use(express.static(EXPRESS_ROOT));
