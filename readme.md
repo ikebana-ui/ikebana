@@ -3,7 +3,7 @@
 > Ikebana (/ˌɪkɪˈbɑːnə/) is a UI component library.  
 > [ikebana-ui.github.io/ikebana](http://ikebana-ui.github.io/ikebana)
 
-[![Build Status](https://travis-ci.org/ikebana-ui/ikebana.png?branch=master "Build status - Travis")](https://travis-ci.org/ikebana-ui/ikebana) [![Dependencies](https://david-dm.org/ikebana-ui/ikebana.png "Node package dependencies - David")](https://david-dm.org/ikebana-ui/ikebana) [![Dependency Status](https://gemnasium.com/ikebana-ui/ikebana.png "Ruby gem dependencies - Gemnasium")](https://gemnasium.com/ikebana-ui/ikebana) <a href="https://codeclimate.com/github/rails/rails" title="JSLint - Code Climate"><img src="https://codeclimate.com/github/rails/rails.png" /></a> [![Coverage Status](https://coveralls.io/repos/ikebana-ui/ikebana/badge.png "Code coverage - Coveralls")](https://coveralls.io/r/ikebana-ui/ikebana)
+[![Build Status](https://travis-ci.org/ikebana-ui/ikebana.png?branch=master "Build status - Travis")](https://travis-ci.org/ikebana-ui/ikebana) [![Dependencies](https://david-dm.org/ikebana-ui/ikebana.png?theme=shields.io "Node package dependencies - David")](https://david-dm.org/ikebana-ui/ikebana) [![Dependency Status](https://gemnasium.com/ikebana-ui/ikebana.png "Ruby gem dependencies - Gemnasium")](https://gemnasium.com/ikebana-ui/ikebana) <a href="https://codeclimate.com/github/rails/rails" title="JSLint - Code Climate"><img src="https://codeclimate.com/github/rails/rails.png" /></a> [![Coverage Status](https://coveralls.io/repos/ikebana-ui/ikebana/badge.png "Code coverage - Coveralls")](https://coveralls.io/r/ikebana-ui/ikebana) [![License](http://img.shields.io/badge/license-MIT-blue.svg "Licensed under MIT")](license.md)
 
 ## Getting started
 
