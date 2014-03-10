@@ -47,7 +47,8 @@
     "gulp-strip-debug": "^0.2.0",
     "gulp-mocha": "^0.4.1",
     "event-stream": "^3.1.0",
-    "bower": "^1.2.8"
+    "bower": "^1.2.8",
+    "coveralls": "^2.8.0"
   },
   "keywords": [
     "ikebana",
