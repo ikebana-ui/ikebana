@@ -76,36 +76,6 @@ gulp.task("clean", function () {
 
 
 /**
- * Tag
- * @see www.npmjs.org/package/gulp-git
- * @deprecated
- */
-gulp.task("tag", ["bump"], function () {
-  gutil.log(gutil.colors.red("WARNING: This task has been deprecated and will not run. It will be removed in a future release."));
-  return;
-
-  var pkg = require("./package.json");
-
-  var v = "v" + pkg.version,
-      message = "[gulp] Tagging release " + v + " on " + new Date().toUTCString(),
-      execScript = [
-        "git checkout master",
-        "git add package.json bower.json",
-        ("git commit -m '" + message + "'"),
-        ("git tag --annotate " + v),
-      ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
-
-  var child = exec(execScript, function (error, stdout, stderr) {
-    gutil.log("stdout: ", stdout);
-    gutil.log("stderr: ", stderr);
-    if (null !== error) {
-      gutil.log("exec error: ", error);
-    }
-  });
-});
-
-
-/**
  * bump:tag
  * Tags the release after bump:commit and pushes it to master.
  */
@@ -301,38 +271,6 @@ gulp.task("dist:sources", function () {
       base: DIR.src
     })
     .pipe(gulp.dest(DIR.dist));
-});
-
-
-/**
- * Publish
- * Custom task to publish a distribution to the server.
- * @deprecated
- */
-gulp.task("publish", ["dist", "tag"], function () {
-  gutil.log(gutil.colors.red("WARNING: This task has been deprecated and will not run. It will be removed in a future release."));
-  return;
-
-  var pkg = require("./package.json");
-
-  var v = "v" + pkg.version,
-      message = "[gulp] Publishing release " + v + " on " + new Date().toUTCString(),
-      execScript = [
-        "git checkout gh-pages",
-        ("git add " + DIR.dist + " " + DIR.doc + " " + DIR.web),
-        ("git commit -m '" + message + "'"),
-        "git pull --rebase origin gh-pages",
-        "git push --tags origin gh-pages",
-        "git checkout master"
-      ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
-
-  var child = exec(execScript, function (error, stdout, stderr) {
-    gutil.log("stdout: ", stdout);
-    gutil.log("stderr: ", stderr);
-    if (null !== error) {
-      gutil.log("exec error: ", error);
-    }
-  });
 });
 
 
