@@ -6,7 +6,7 @@
 
 Ikebana components can be installed using [Bower](http://bower.io) from `http://rishabhsrao.github.io/ikebana/dist/<component-name>.zip`.
 
-For example, to install the latest version **Button** component...
+For example, to install the latest version of the **Button** component...
 
 ```
     bower install `http://rishabhsrao.github.io/ikebana/dist/components/button.zip`
