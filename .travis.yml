@@ -15,9 +15,9 @@ script:
   - "gulp clean"
   - "gulp build"
 after_success:
-  -
+  - "gulp test:report:coveralls"
 after_script:
-  -
+  - "echo 'Build complete!'"
 env:
   global:
     - GH_REPO_NAME: "ikebana"
