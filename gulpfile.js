@@ -325,18 +325,20 @@ gulp.task("server", ["build"], function () {
   gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.scss"), ["compass"]);
   gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.js"), ["dist:sources"]);
   gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.html"), ["dist:sources"]);
+  // TODO Add support for png, jpg, svg etc.
 
   // Watch all the dist files and reload when they are changed.
   gulp.watch([
     path.join(__dirname, DIR.dist, DIR.cmp.src, "/**/*.css"),
     path.join(__dirname, DIR.dist, DIR.cmp.src, "/**/*.js"),
     path.join(__dirname, DIR.dist, DIR.cmp.src, "/**/*.html")
+    // TODO Add support for png, jpg, svg etc.
   ], function(event) {
     var fileName = path.relative(EXPRESS_ROOT, event.path);
 
     lr.changed({
       body: {
-        files: [fileName]
+        files: [ fileName ]
       }
     });
   });
