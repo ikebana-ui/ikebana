@@ -307,7 +307,7 @@ gulp.task("zip", ["build"], function () {
  * Live-reload
  * Uses `express`, `tiny-lr` and `connect-livereload` to set up a live-reload server.
  */
-gulp.task("server", [], function () {
+gulp.task("server", ["build"], function () {
   var express         = require("express"),
       app             = express(),
       lr              = require("tiny-lr")(),
