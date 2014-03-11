@@ -313,7 +313,7 @@ gulp.task("server", ["build"], function () {
       lr              = require("tiny-lr")(),
       clr             = require("connect-livereload"),
       EXPRESS_PORT    = 4000,
-      EXPRESS_ROOT    = path.join(__dirname, DIR.dist, DIR.cmp.src),
+      EXPRESS_ROOT    = path.join(__dirname),
       LIVERELOAD_PORT = 35729;
 
   app.use(clr());
