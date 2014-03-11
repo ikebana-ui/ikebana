@@ -7,9 +7,18 @@
 
 ## Getting started with development
 
-Ensure that you have the latest versions of [Node.js](http://nodejs.org), [Bundler](http://bundler.io) and [Bower](http://bower.io). Next, run...
+Ikebana uses the following libraries...
+
+* [Node.js](http://nodejs.org)
+* [Bundler](http://bundler.io)
+* [Bower](http://bower.io)
+
+**Tip**: You can use [nvm](https://github.com/creationix/nvm), [rvm](https://rvm.io) and [Homebrew](http://brew.sh)/[Chocolatey](https://chocolatey.org) to manage their installations.
+
+Once they are installed, run...
 
 ```
+npm install -g gulp # A global installation of gulp is required.
 git clone git@github.com:ikebana-ui/ikebana.git
 cd ikebana
 bundle install && npm install && bower install
