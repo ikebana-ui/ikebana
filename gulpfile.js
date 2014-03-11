@@ -102,22 +102,10 @@ gulp.task("bump:commit", ["bump"], function () {
   var v = "v" + pkg.version,
       message = "[gulp] Bumped to " + v;
 
-  return gulp.src("bower.json")
-    .pipe(git.add())
-    .pipe(git.commit(message))
-    .pipe(gulp.src("package.json"))
-    .pipe(git.add())
-    .pipe(git.commit(message));
-
-  /*
   var execScript = [
-        "git checkout master",
         "git add package.json bower.json",
         ("git commit -m '" + message + "'"),
-        ("git tag --annotate " + v),
       ].join(" && "); // FIXME gulp-git is unstable at v0.3.3; hence using this workaround.
-
-  gutil.log("Execting", execScript);
 
   var child = exec(execScript, function (error, stdout, stderr) {
     gutil.log("stdout: ", stdout);
@@ -127,8 +115,7 @@ gulp.task("bump:commit", ["bump"], function () {
     }
   });
 
-  gutil.log(gutil.colors.blue("All done!"), "Use", gutil.colors.blue("git push --tags origin master"), "to push the newly created tag,", gutil.colors.red(v), "to the server.");
-  */
+  gutil.log("Bumped to", gutil.colors.blue(v));
 });
 
 
