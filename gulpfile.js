@@ -159,15 +159,16 @@ gulp.task("create", function () {
  * Compass
  * @see www.npmjs.org/package/gulp-compass
  */
-gulp.task("compass", function() {
-  var pkg = require("./package.json");
+gulp.task("css:compass", function() {
+  var pkg = require("./package.json").
+      outputStyle = args.output || "expanded";  // Output style; ["nested" | "compact" | "compressed" | "expanded"]
 
   return gulp.src([
       path.join(DIR.src, "/**/*.scss"),
       path.join(DIR.src, "/**/*.sass")
     ])
     .pipe(compass({
-      style: "expanded", // Output style; ["nested" | "compact" | "compressed" | "expanded"]
+      style: outputStyle,
       css: DIR.dist,
       sass: DIR.src
     }))
@@ -176,10 +177,18 @@ gulp.task("compass", function() {
 
 
 /**
+ * Sass
+ * @see www.npmjs.org/package/gulp-sass
+ */
+gulp.task("css:sass", function() {
+  // TODO Add SASS compilation.
+});
+
+/**
  * Lint
  * @see www.npmjs.org/package/gulp-jshint
  */
-gulp.task("lint", function () {
+gulp.task("js:lint", function () {
   var pkg = require("./package.json");
 
   return gulp.src([
@@ -195,7 +204,7 @@ gulp.task("lint", function () {
  * Test
  * @see www.npmjs.org/package/gulp-mocha
  */
-gulp.task("test", ["lint"], function () {
+gulp.task("test", ["js:lint"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([ path.join(DIR.src, "/**/*.js") ])
@@ -224,7 +233,7 @@ gulp.task("test:report:coveralls", ["test"], function () {
  * Minify
  * @see www.npmjs.org/package/gulp-uglify
  */
-gulp.task("minify", ["test"], function () {
+gulp.task("js:minify", ["test"], function () {
   var pkg = require("./package.json");
 
   // TODO Use gulp-header to add version info.
@@ -264,7 +273,7 @@ gulp.task("dist:sources", function () {
  * Zip
  * Zip each component into its own zip file.
  */
-gulp.task("zip", ["build"], function () {
+gulp.task("dist:zip", ["build"], function () {
   var pkg = require("./package.json");
 
   // Courtesy github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
@@ -308,7 +317,7 @@ gulp.task("server", ["build"], function () {
   lr.listen(LIVERELOAD_PORT);
 
   // Watch all the source files and push them to the dist folder.
-  gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.scss"), ["compass"]);
+  gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.scss"), ["css:compass"]);
   gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.js"), ["dist:sources"]);
   gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.html"), ["dist:sources"]);
   // TODO Add support for png, jpg, svg etc.
@@ -337,13 +346,13 @@ gulp.task("server", ["build"], function () {
  * Build (alias)
  * Used by travis-ci.
  */
-gulp.task("build", ["compass", "minify", "dist:sources"]);
+gulp.task("build", ["css:compass", "js:minify", "dist:sources"]);
 
 
 /**
  * Dist (alias)
  */
-gulp.task("dist", ["zip"]);
+gulp.task("dist", ["dist:zip"]);
 
 
 /**
