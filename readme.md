@@ -57,7 +57,7 @@ In addition to `gulp server`, the following tasks are available to you...
 * **js:lint**: Runs `jshint` on all the `lib/components/<component-name>/js/*.js` files. Uses `.jshintrc` for configuration.
 * **test** (depends on **js:lint**): Runs all the [Mocha](http://visionmedia.github.io/mocha) unit tests inside the `lib/components/<component-name>/test` directory.
 * **test:report:coveralls**: Sends test coverage data to *Coveralls.io*. Uses [Istanbul](http://gotwarlost.github.io/istanbul).
-* **js:minify** (depends on **test**): Uses [Uglify.js](http:// "TODO Add link") to minify all the `lib/components/<component-name>/js/*.js` files
+* **js:minify** (depends on **test**): Uses [Uglify](http://lisperator.net/uglifyjs) to minify all the `lib/components/<component-name>/js/*.js` files
 * **dist:sources**: Simply copies all the files under `lib/components/**.*` (excluding `lib/components/<component-name>/test/**.*`) to the `dist` directory.
 * **dist:zip** (depends on **build**): Zips up all the component files in `dist/components/<component-name>` to `dist/components/<component-name>/<component-name>-<package-version>.zip`.
 * **server**: Runs a live-reload enabled Express server. Watches all the `.js`, `.scss` and `.html` files in `lib/components/<component-name>/**.*` directories and runs **css:compass** and **dist:sources**.
