@@ -160,7 +160,7 @@ gulp.task("create", function () {
  * @see www.npmjs.org/package/gulp-compass
  */
 gulp.task("css:compass", function() {
-  var pkg = require("./package.json").
+  var pkg = require("./package.json"),
       outputStyle = args.output || "expanded";  // Output style; ["nested" | "compact" | "compressed" | "expanded"]
 
   return gulp.src([
