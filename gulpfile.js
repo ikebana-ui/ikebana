@@ -179,7 +179,7 @@ gulp.task("css:compass", function() {
 
 /**
  * Sass
- * @see www.npmjs.org/package/gulp-sass
+ * @see www.npmjs.org/package/gulp-ruby-sass
  */
 gulp.task("css:sass", function() {
   var pkg = require("./package.json"),
