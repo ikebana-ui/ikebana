@@ -23,6 +23,7 @@ var args      = require("yargs").argv,
     jshint    = require("gulp-jshint"),
     mocha     = require("gulp-mocha"),
     path      = require("path"),
+    sass      = require("gulp-ruby-sass"),
     rename    = require("gulp-rename"),
     template  = require("gulp-template"),
     uglify    = require("gulp-uglify"),
@@ -181,7 +182,17 @@ gulp.task("css:compass", function() {
  * @see www.npmjs.org/package/gulp-sass
  */
 gulp.task("css:sass", function() {
-  // TODO Add SASS compilation.
+  var pkg = require("./package.json"),
+      outputStyle = args.output || "expanded";  // Output style; ["nested" | "compact" | "compressed" | "expanded"]
+
+  return gulp.src([
+      path.join(DIR.src, "/**/*.scss"),
+      path.join(DIR.src, "/**/*.sass")
+    ])
+    .pipe(sass({
+      style: outputStyle
+    }))
+    .pipe(gulp.dest(DIR.dist));
 });
 
 /**
