@@ -54,7 +54,8 @@
     "tiny-lr": "0.0.5",
     "express": "^3.5.0",
     "gulp-istanbul": "^0.1.1",
-    "mocha-lcov-reporter": "0.0.1"
+    "mocha-lcov-reporter": "0.0.1",
+    "gulp-ruby-sass": "^0.4.3"
   },
   "keywords": [
     "ikebana",
