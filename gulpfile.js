@@ -2,7 +2,7 @@
 
 
 
-/* ⚑ Configuration */
+/* # Configuration */
 
 var args      = require("yargs").argv,
     bump      = require("gulp-bump"),
@@ -49,7 +49,7 @@ var DIR = {
 
 
 
-/* ⚑ Project scaffolding tasks */
+/* # Project scaffolding tasks */
 
 /**
  * Bump
@@ -154,7 +154,7 @@ gulp.task("create", function () {
 
 
 
-/* ⚑ Primary tasks */
+/* # Primary tasks */
 
 /**
  * Compass
