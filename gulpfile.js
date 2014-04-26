@@ -1,6 +1,13 @@
 "use strict";
 
 
+// JSHint directives
+/*
+global require: false
+global process: false
+global __dirname: false
+*/
+
 
 /* # Configuration */
 
