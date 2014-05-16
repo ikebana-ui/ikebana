@@ -227,7 +227,7 @@ gulp.task("js:test", ["js:lint"], function () {
 
   return gulp.src([ path.join(DIR.src, "/**/*.js") ])
     .pipe(istanbul())
-    .on("end", function () {
+    .on("finish", function () {
       gulp.src([ path.join(DIR.src, "/**/*.js") ])
         .pipe(mocha())
         .pipe(istanbul.writeReports());
