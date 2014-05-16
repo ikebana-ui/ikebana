@@ -203,6 +203,16 @@ gulp.task("css:sass", function() {
     .pipe(gulp.dest(DIR.dist));
 });
 
+
+/**
+ * Documentation
+ * @see www.npmjs.org/package/topdoc
+ */
+gulp.task("css:doc", function() {
+  gutil.log("Sorry, the documentation task is not implemented yet!");
+});
+
+
 /**
  * Lint
  * @see www.npmjs.org/package/gulp-jshint
