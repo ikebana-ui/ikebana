@@ -8,6 +8,7 @@ web
 ### SASS ###
 ### Sass Ignores - "Sassy CSS" http://sass-lang.com/
 *.sass-cache
+examples/*/assets/
 
 ### Node ###
 node_modules

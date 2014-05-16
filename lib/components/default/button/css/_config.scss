@@ -1,4 +1,4 @@
-@import "../../../config";
+@import "../../../../config";
 
 // Variable naming pattern: $ik-<component>-[modifier]-<css-prop-name>
 
@@ -7,7 +7,7 @@
 $ik-button-default-background-color: #E6E6E6;
 $ik-button-default-color: #444;
 
-$ik-button-primary-background-color: #4169E1;
+$ik-button-primary-background-color: $ik-base-color;
 $ik-button-primary-color: #fff;
 
 $ik-button-disabled-background-color: #eae8e8;
