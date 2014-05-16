@@ -12,7 +12,7 @@ script:
   - "gulp clean"
   - "gulp build"
 after_success:
-  - "gulp test:report:coveralls"
+  - "gulp js:test:report:coveralls"
 after_script:
   -
 notifications:

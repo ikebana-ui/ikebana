@@ -222,7 +222,7 @@ gulp.task("js:lint", function () {
  * Test
  * @see www.npmjs.org/package/gulp-mocha
  */
-gulp.task("test", ["js:lint"], function () {
+gulp.task("js:test", ["js:lint"], function () {
   var pkg = require("./package.json");
 
   return gulp.src([ path.join(DIR.src, "/**/*.js") ])
@@ -239,7 +239,7 @@ gulp.task("test", ["js:lint"], function () {
  * Report results to Coveralls.io
  * @see www.npmjs.org/package/gulp-coveralls
  */
-gulp.task("test:report:coveralls", ["test"], function () {
+gulp.task("js:test:report:coveralls", ["js:test"], function () {
   var pkg = require("./package.json");
 
   gulp.src("coverage/**/lcov.info")
@@ -251,7 +251,7 @@ gulp.task("test:report:coveralls", ["test"], function () {
  * Minify
  * @see www.npmjs.org/package/gulp-uglify
  */
-gulp.task("js:minify", ["test"], function () {
+gulp.task("js:minify", ["js:test"], function () {
   var pkg = require("./package.json");
 
   // TODO Use gulp-header to add version info.
