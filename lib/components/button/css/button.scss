@@ -1,0 +1,78 @@
+/*!
+ * button - ikebana
+ * @version v0.0.28
+ * @link https://github.com/ikebana-ui/ikebana
+ * @license MIT
+ */
+
+ @import "_config";
+
+.button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: baseline;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  font-family: inherit;
+  font-size: 100%;
+  text-decoration: none;
+
+  border-radius: 2px;
+  border: 1px solid #999;  /*IE 6/7/8*/
+  border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+  background-color: $ik-button-default-background-color;
+  color: $ik-button-default-color;
+
+  &:hover,
+  &:focus {
+    outline: 0;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0, 0.05)), to(rgba(0,0,0, 0.10)));
+    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.05) 0%, rgba(0,0,0, 0.10));
+    background-image: -o-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+  }
+
+  &:active {
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+  }
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}
+
+/**********
+Modifiers
+***********/
+.button-primary,
+a.button-primary {
+  background-color: $ik-button-primary-background-color;
+  color: $ik-button-primary-color;
+}
+
+.button-disabled,
+.button-disabled:hover,
+.button-disabled:focus,
+.button-disabled:active {
+  border: none;
+  background-image: none;
+  filter: alpha(opacity=40);
+  cursor: not-allowed;
+  box-shadow: none;
+  background: $ik-button-disabled-background-color;
+  color: $ik-button-disabled-color;
+}
+
+.button-hidden {
+  display: none;
+}
