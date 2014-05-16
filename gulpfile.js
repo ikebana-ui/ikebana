@@ -180,6 +180,7 @@ gulp.task("css:compass", function() {
       css: DIR.dist,
       sass: DIR.src
     }))
+    .on("error", gutil.log)
     .pipe(gulp.dest(DIR.dist));
 });
 
