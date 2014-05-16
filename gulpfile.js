@@ -336,16 +336,16 @@ gulp.task("server", ["build"], function () {
   lr.listen(LIVERELOAD_PORT);
 
   // Watch all the source files and push them to the dist folder.
-  gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.scss"), ["css:compass"]);
-  gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.js"), ["dist:sources"]);
-  gulp.watch(path.join(DIR.src, DIR.cmp.src, "/**/*.html"), ["dist:sources"]);
+  gulp.watch(path.join(DIR.src, "/**/*.scss"), ["css:compass"]);
+  gulp.watch(path.join(DIR.src, "/**/*.js"), ["dist:sources"]);
+  gulp.watch(path.join(DIR.src, "/**/*.html"), ["dist:sources"]);
   // TODO Add support for png, jpg, svg etc.
 
   // Watch all the dist files and reload when they are changed.
   gulp.watch([
-    path.join(__dirname, DIR.dist, DIR.cmp.src, "/**/*.css"),
-    path.join(__dirname, DIR.dist, DIR.cmp.src, "/**/*.js"),
-    path.join(__dirname, DIR.dist, DIR.cmp.src, "/**/*.html")
+    path.join(__dirname, DIR.dist, "/**/*.css"),
+    path.join(__dirname, DIR.dist, "/**/*.js"),
+    path.join(__dirname, DIR.dist, "/**/*.html")
     // TODO Add support for png, jpg, svg etc.
   ], function(event) {
     var fileName = path.relative(EXPRESS_ROOT, event.path);
