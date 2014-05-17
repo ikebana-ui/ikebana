@@ -155,7 +155,7 @@ gulp.task("create", function () {
       prefix: "",
       suffix: ""
     }))
-    .pipe(gulp.dest(path.join(DIR.src, DIR.cmp.src, name, "/")));
+    .pipe(gulp.dest(path.join(DIR.src, DIR.cmp.src, name)));
 
     // TODO Make this interactive using https://www.npmjs.org/package/gulp-prompt
     // SEE https://github.com/isaacs/rimraf
