@@ -163,16 +163,23 @@ gulp.task("create", function () {
   }
 
   return gulp.src([
-      path.join(DIR.tpl, DIR.cmp.tpl, "/**/*.*")
+      path.join(DIR.tpl, DIR.cmp.tpl, "/**/", FILE.script.js),
+      path.join(DIR.tpl, DIR.cmp.tpl, "/**/", FILE.markup.html),
+      path.join(DIR.tpl, DIR.cmp.tpl, "/**/", FILE.style.scss),
+      path.join(DIR.tpl, DIR.cmp.tpl, "/**/", FILE.style.sass)
     ])
-    .pipe(template({
-      name: name,
-      pkg: pkg
-    }))
     .pipe(rename({
       basename: name,
       prefix: "",
       suffix: ""
+    }))
+    .pipe(addsrc([
+      path.join(DIR.tpl, DIR.cmp.tpl, "/**/", FILE.config.pkg),
+      path.join(DIR.tpl, DIR.cmp.tpl, "/**/", FILE.config.style)
+    ]))
+    .pipe(template({
+      name: name,
+      pkg: pkg
     }))
     .pipe(gulp.dest(path.join(DIR.src, DIR.cmp.src, name)));
 
