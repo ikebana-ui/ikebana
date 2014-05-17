@@ -59,6 +59,24 @@ var DIR = {
   }
 };
 
+var FILE = {
+  config: {
+    style: "_config.scss",
+    pkg: "package.json"
+  },
+  style: {
+    scss: "*.scss",
+    sass: "*.sass"
+  },
+  script: {
+    js: "*.js"
+    // coffee: "*.coffee"
+  },
+  markup: {
+    html: "*.html"
+    // haml: "*.haml"
+  }
+};
 
 
 /* # Project scaffolding tasks */
