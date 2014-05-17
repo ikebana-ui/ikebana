@@ -353,9 +353,9 @@ gulp.task("server", ["build"], function () {
 
   // Watch all the dist files and reload when they are changed.
   gulp.watch([
-    path.join(__dirname, DIR.dist, "/**/*.css"),
-    path.join(__dirname, DIR.dist, "/**/*.js"),
-    path.join(__dirname, DIR.dist, "/**/*.html")
+    path.join(DIR.dist, "/**/*.css"),
+    path.join(DIR.dist, "/**/*.js"),
+    path.join(DIR.dist, "/**/*.html")
     // TODO Add support for png, jpg, svg etc.
   ], function(event) {
     var fileName = path.relative(EXPRESS_ROOT, event.path);
