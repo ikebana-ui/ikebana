@@ -22,7 +22,8 @@ npm install -g gulp # A global installation of gulp is required.
 git clone git@github.com:ikebana-ui/ikebana.git
 cd ikebana
 bundle install && npm install && bower install
-gulp dist
+gulp build
+say awesome
 ```
 
 Once done, the `dist` directory will have the built artefacts in the `master` branch. To view other Gulp tasks, just run `gulp`.
