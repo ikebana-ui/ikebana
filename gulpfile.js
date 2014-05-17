@@ -11,7 +11,8 @@ global __dirname: false
 
 /* # Configuration */
 
-var args      = require("yargs").argv,
+var addsrc    = require("gulp-add-src"),
+    args      = require("yargs").argv,
     bump      = require("gulp-bump"),
     clean     = require("gulp-clean"),
     compass   = require("gulp-compass"),
