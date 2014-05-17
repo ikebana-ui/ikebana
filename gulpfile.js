@@ -346,7 +346,7 @@ gulp.task("server", ["build"], function () {
   lr.listen(LIVERELOAD_PORT);
 
   // Watch all the source files and push them to the dist folder.
-  gulp.watch(path.join(DIR.src, "/**/*.scss"), ["css:compass"]);
+  gulp.watch(path.join(DIR.src, "/**/*.scss"), ["css:compass"]); // css:compass task automatically pushes generated CSS files to the dist folder, so no need to run dist:sources
   gulp.watch(path.join(DIR.src, "/**/*.js"), ["dist:sources"]);
   gulp.watch(path.join(DIR.src, "/**/*.html"), ["dist:sources"]);
   // TODO Add support for png, jpg, svg etc.
