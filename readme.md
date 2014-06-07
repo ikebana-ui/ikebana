@@ -62,23 +62,24 @@ In addition to `gulp server`, the following tasks are available to you...
 
 <dl>
   <dt>bump</dt>
-  <dd>Increments the version numbers (major.minor.patch) in `package.json` and `bower.json`.</dd>
+  <dd>Increments the version numbers (major.minor.patch) in <code>package.json</code> and <code>bower.json</code>.</dd>
 
   <dt>clean</dt>
-  <dd>Deletes everything in the `dist` directory.</dd>
+  <dd>Deletes everything in the <code>dist</code> directory.</dd>
 
   <dt>bump:tag</dt>
-  <dd>Creates a git tag using the version number in `package.json`.</dd>
+  <dd>Creates a git tag using the version number in <code>package.json</code>.</dd>
 
   <dt>bump:commit</dt>
-  <dd>Creates a git commit by adding `package.json` and `bower.json`, using the version number in `package.json` as the commit message.</dd>
+  <dd>Creates a git commit by adding <code>package.json</code> and <code>bower.json</code>, using the version number in <code>package.json</code> as the commit message.</dd>
 
-  <dt>create --name {{component-name}}</dd>
-  <dd>Takes an argument (`name`), the component name, and creates a directory, `lib/components/{{component-name}}`, for that component with stub `.scss`, `.js` and `.html` files.
-    For example, to create a new component called, *button*, just run...
-    ```
-    gulp create --name button
-    ```
+  <dt>create --name {{component-name}}</dt>
+    <dd>
+      <p>Takes an argument (<code>name</code>), the component name, and creates a directory, <code>lib/components/{{component-name}}</code>, for that component with stub <code>.scss</code>, <code>.js</code> and <code>.html</code> files.</p>
+      <p>For example, to create a new component called, <strong>button</strong>, just run&hellip;</p>
+      <code>
+        <pre>gulp create --name button</pre>
+      </code>
   </dd>
 
   <dt>css:compass</dt>
