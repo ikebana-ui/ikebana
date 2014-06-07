@@ -7,7 +7,7 @@
 
 
 
-## :black_nib: Getting started with development
+## :rowboat: Getting started with development
 
 Ikebana uses the following libraries...
 
@@ -15,7 +15,7 @@ Ikebana uses the following libraries...
 * [Bundler](http://bundler.io)
 * [Bower](http://bower.io)
 
-**Tip**: You can use [nvm](https://github.com/creationix/nvm), [rvm](https://rvm.io) and [Homebrew](http://brew.sh)/[Chocolatey](https://chocolatey.org) to manage their installations.
+:point_up: **Tip**: You can use [nvm](https://github.com/creationix/nvm), [rvm](https://rvm.io) and [Homebrew](http://brew.sh)/[Chocolatey](https://chocolatey.org) to manage their installations.
 
 Once they are installed, run...
 
