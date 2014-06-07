@@ -75,7 +75,7 @@ In addition to `gulp server`, the following tasks are available to you...
 
   <dt>create --name {{component-name}}</dt>
     <dd>
-      <p>Takes an argument (<code>name</code>), the component name, and creates a directory, <code>lib/components/{{component-name}}</code>, for that component with stub <code>.scss</code>, <code>.js</code> and <code>.html</code> files.</p>
+      Takes an argument (<code>name</code>), the component name, and creates a directory, <code>lib/components/{{component-name}}</code>, for that component with stub <code>.scss</code>, <code>.js</code> and <code>.html</code> files.
       <p>For example, to create a new component called, <strong>button</strong>, just run&hellip;</p>
       <code>gulp create --name button</code>
   </dd>
