@@ -15,7 +15,7 @@ Ikebana uses the following libraries...
 * [Bundler](http://bundler.io)
 * [Bower](http://bower.io)
 
-:point_up: **Tip**: You can use [nvm](https://github.com/creationix/nvm), [rvm](https://rvm.io) and [Homebrew](http://brew.sh)/[Chocolatey](https://chocolatey.org) to manage their installations.
+:point_up: You can use [nvm](https://github.com/creationix/nvm), [rvm](https://rvm.io) and [Homebrew](http://brew.sh)/[Chocolatey](https://chocolatey.org) to manage their installations.
 
 Once they are installed, run...
 
