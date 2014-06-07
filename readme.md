@@ -45,14 +45,14 @@ You are welcome to contribute components to Ikebana; just fork this repo and sen
 
 ### Creating a new component
 
-* Use `gulp create --name <component-name>` to create a new component.
-* This will create a new directory under `lib/components/<component-name>`.
+* Use `gulp create --name {{component-name}}` to create a new component.
+* This will create a new directory under `lib/components/{{component-name}}`.
 
 
 ### Developing a component
 
 * Use `gulp server` to fire up a live-reload server.
-* Open `http://localhost:4000/dist/components/<component-name>/<component-name>.html`.
+* Open `http://localhost:4000/dist/components/{{component-name}}/{{component-name}}.html`.
 * The `server` task will watch the `lib/components` directory and reload your browser upon detecting changes.
 
 
@@ -60,69 +60,69 @@ You are welcome to contribute components to Ikebana; just fork this repo and sen
 
 In addition to `gulp server`, the following tasks are available to you...
 
+<dl>
+  <dt>bump</dt>
+  <dd>Increments the version numbers (major.minor.patch) in `package.json` and `bower.json`.</dd>
 
-#### bump
-Increments the version numbers (major.minor.patch) in `package.json` and `bower.json`.
+  <dt>clean</dt>
+  <dd>Deletes everything in the `dist` directory.</dd>
 
-#### clean
-Deletes everything in the `dist` directory.
+  <dt>bump:tag</dt>
+  <dd>Creates a git tag using the version number in `package.json`.</dd>
 
-#### bump:tag
-Creates a git tag using the version number in `package.json`.
+  <dt>bump:commit</dt>
+  <dd>Creates a git commit by adding `package.json` and `bower.json`, using the version number in `package.json` as the commit message.</dd>
 
-#### bump:commit
-Creates a git commit by adding `package.json` and `bower.json`, using the version number in `package.json` as the commit message.
+  <dt>create --name {{component-name}}</dd>
+  <dd>Takes an argument (`name`), the component name, and creates a directory, `lib/components/{{component-name}}`, for that component with stub `.scss`, `.js` and `.html` files.
+    For example, to create a new component called, *button*, just run...
+    ```
+    gulp create --name button
+    ```
+  </dd>
 
-#### create --name <component-name>
-Takes an argument (`name`), the component name, and creates a directory, `lib/components/<component-name>`, for that component with stub `.scss`, `.js` and `.html` files.
+  <dt>css:compass</dt>
+  <dd>Uses `compass` to compile all the `lib/components/{{component-name}}/css/*.scss` files.</dd>
 
-For example, to create a new component called, *button*, just run...
-```
-gulp create --name button
-```
+  <dt>css:sass</dt>
+  <dd>Uses `sass` to compile all the `lib/components/{{component-name}}/css/*.scss` files.</dd>
 
-#### css:compass
-Uses `compass` to compile all the `lib/components/<component-name>/css/*.scss` files.
+  <dt>js:lint</dt>
+  <dd>Runs `jshint` on all the `lib/components/{{component-name}}/js/*.js` files. Uses `.jshintrc` for configuration.</dd>
 
-#### css:sass
-Uses `sass` to compile all the `lib/components/<component-name>/css/*.scss` files.
+  <dt>js:test</dt>
+  <dd>Runs all the [Mocha](http://visionmedia.github.io/mocha) unit tests inside the `lib/components/{{component-name}}/test` directory.</dd>
 
-#### js:lint
-Runs `jshint` on all the `lib/components/<component-name>/js/*.js` files. Uses `.jshintrc` for configuration.
+  <dt>js:test:report:coveralls</dt>
+  <dd>Sends test coverage data to *Coveralls.io*. Uses [Istanbul](http://gotwarlost.github.io/istanbul).</dd>
 
-#### js:test
-Runs all the [Mocha](http://visionmedia.github.io/mocha) unit tests inside the `lib/components/<component-name>/test` directory.
+  <dt>js:minify</dt>
+  <dd>Uses [Uglify](http://lisperator.net/uglifyjs) to minify all the `lib/components/{{component-name}}/js/*.js` files</dd>
 
-#### js:test:report:coveralls
-Sends test coverage data to *Coveralls.io*. Uses [Istanbul](http://gotwarlost.github.io/istanbul).
+  <dt>doc:styleguide</dt>
+  <dd>Uses [Hologram](http://github.com/trulia/hologram) to generate a styleguide.</dd>
 
-#### js:minify
-Uses [Uglify](http://lisperator.net/uglifyjs) to minify all the `lib/components/<component-name>/js/*.js` files
+  <dt>dist:sources</dt>
+  <dd>Simply copies all the files under `lib/components/**.*` (excluding `lib/components/{{component-name}}/test/**.*`) to the `dist` directory.</dd>
 
-#### doc:styleguide
-Uses [Hologram](http://github.com/trulia/hologram) to generate a styleguide.
+  <dt>dist:zip</dt>
+  <dd>Zips up all the component files in `dist/components/{{component-name}}` to `dist/components/{{component-name}}/{{component-name}}-<package-version>.zip`.</package-version>
 
-#### dist:sources
-Simply copies all the files under `lib/components/**.*` (excluding `lib/components/<component-name>/test/**.*`) to the `dist` directory.
+  <dt>server</dt>
+  <dd>Runs a live-reload enabled Express server. Watches all the `.js`, `.scss` and `.html` files in `lib/components/{{component-name}}/**.*` directories and runs **css:compass** and **dist:sources**.</dd>
 
-#### dist:zip
-Zips up all the component files in `dist/components/<component-name>` to `dist/components/<component-name>/<component-name>-<package-version>.zip`.
+  <dt>build</dt>
+  <dd>An alias for **css:compass**, **js:minify** and **dist:sources**. *More tasks may be added in the future.*</dd>
 
-#### server
-Runs a live-reload enabled Express server. Watches all the `.js`, `.scss` and `.html` files in `lib/components/<component-name>/**.*` directories and runs **css:compass** and **dist:sources**.
+  <dt>dist</dt>
+  <dd>An alias for **dist:zip**. *More tasks may be added in the future.*</dd>
 
-#### build
-An alias for **css:compass**, **js:minify** and **dist:sources**. *More tasks may be added in the future.*
+  <dt>deploy</dt>
+  <dd>An alias for **bump:tag**. *More tasks may be added in the future.*</dd>
 
-#### dist
-An alias for **dist:zip**. *More tasks may be added in the future.*
-
-#### deploy
-An alias for **bump:tag**. *More tasks may be added in the future.*
-
-#### default
-Lists all the available tasks.
-
+  <dt>default</dt>
+  <dd>Just lists all the available tasks.</dd>
+</dl>
 
 ### Distributing a component
 
