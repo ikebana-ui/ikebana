@@ -200,7 +200,7 @@ gulp.task("create", function () {
  */
 gulp.task("css:compass", function() {
   var pkg = require("./package.json"),
-      outputStyle = args.output || "expanded";  // Output style; ["nested" | "compact" | "compressed" | "expanded"]
+      outputStyle = args.output || "expanded"; // Output style; ["nested" | "compact" | "compressed" | "expanded"]
 
   return gulp.src([
       path.join(DIR.src, "/**/*.scss"),
