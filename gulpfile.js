@@ -62,7 +62,8 @@ var DIR = {
 var FILE = {
   config: {
     style: "_config.scss",
-    pkg: "package.json"
+    pkg: "package.json",
+    hologram: ".hologramrc"
   },
   style: {
     scss: "*.scss",
@@ -235,11 +236,17 @@ gulp.task("css:sass", function() {
 
 
 /**
- * Documentation
- * @see www.npmjs.org/package/topdoc
+ * Documentation / Styleguide
+ * @see trulia.github.io/hologram
  */
-gulp.task("css:doc", function() {
-  gutil.log("Sorry, the documentation task is not implemented yet!");
+gulp.task("doc:styleguide", function () {
+  exec("bundle exec hologram --config " + FILE.config.hologram, function (error, stdout, stderr) {
+    gutil.log("hologram stdout: ", stdout);
+    gutil.log("hologram stderr: ", stderr);
+    if (null !== error) {
+      gutil.log("hologram exec error: ", error);
+    }
+  });
 });
 
 

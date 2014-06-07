@@ -4,5 +4,7 @@
   "dependencies": {
     "jquery": "~1.10.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "Cortana": "~1.1.1"
+  }
 }
