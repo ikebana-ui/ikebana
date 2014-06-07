@@ -3,7 +3,7 @@
 > Ikebana (/ˌɪkɪˈbɑːnə/) is a UI component library.  
 > [ikebana-ui.github.io/ikebana](http://ikebana-ui.github.io/ikebana)
 
-[![Build status](https://travis-ci.org/ikebana-ui/ikebana.svg?branch=master "Build status")](https://travis-ci.org/ikebana-ui/ikebana) [![Dependency status (npm)](https://david-dm.org/ikebana-ui/ikebana.svg "Dependency status (npm)")](https://david-dm.org/ikebana-ui/ikebana) [![Dependency status - bundler](https://gemnasium.com/ikebana-ui/ikebana.png "Dependency status (bundler)")](https://gemnasium.com/ikebana-ui/ikebana) [![Code Climate](https://codeclimate.com/github/ikebana-ui/ikebana.png "Code Climate")](https://codeclimate.com/github/ikebana-ui/ikebana) [![Coverage status](https://img.shields.io/coveralls/ikebana-ui/ikebana.svg "Coverage status")](https://coveralls.io/r/ikebana-ui/ikebana) [![License](http://img.shields.io/badge/license-MIT-blue.svg "License")](license.md)
+[![Build status](https://travis-ci.org/ikebana-ui/ikebana.svg?branch=master "Build status")](https://travis-ci.org/ikebana-ui/ikebana) [![Dependency status (npm)](https://david-dm.org/ikebana-ui/ikebana.svg "Dependency status (npm)")](https://david-dm.org/ikebana-ui/ikebana) [![Dependency status - bundler](https://gemnasium.com/ikebana-ui/ikebana.png "Dependency status (bundler)")](https://gemnasium.com/ikebana-ui/ikebana) [![Code Climate](http://img.shields.io/codeclimate/github/ikebana-ui/ikebana.svg "Code Climate")](https://codeclimate.com/github/ikebana-ui/ikebana) [![Coverage status](https://img.shields.io/coveralls/ikebana-ui/ikebana.svg "Coverage status")](https://coveralls.io/r/ikebana-ui/ikebana) [![License](http://img.shields.io/badge/license-MIT-blue.svg "License")](license.md)
 
 
 
