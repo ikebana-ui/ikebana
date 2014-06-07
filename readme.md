@@ -83,43 +83,43 @@ In addition to `gulp server`, the following tasks are available to you...
   </dd>
 
   <dt>css:compass</dt>
-  <dd>Uses `compass` to compile all the `lib/components/{{component-name}}/css/*.scss` files.</dd>
+  <dd>Uses <code>compass</code> to compile all the <code>lib/components/{{component-name}}/css/*.scss</code> files.</dd>
 
   <dt>css:sass</dt>
-  <dd>Uses `sass` to compile all the `lib/components/{{component-name}}/css/*.scss` files.</dd>
+  <dd>Uses <code>sass</code> to compile all the <code>lib/components/{{component-name}}/css/*.scss</code> files.</dd>
 
   <dt>js:lint</dt>
-  <dd>Runs `jshint` on all the `lib/components/{{component-name}}/js/*.js` files. Uses `.jshintrc` for configuration.</dd>
+  <dd>Runs <code>jshint</code> on all the <code>lib/components/{{component-name}}/js/*.js<code> files. Uses <code>.jshintrc</code> for configuration.</dd>
 
   <dt>js:test</dt>
-  <dd>Runs all the [Mocha](http://visionmedia.github.io/mocha) unit tests inside the `lib/components/{{component-name}}/test` directory.</dd>
+  <dd>Runs all the <a href="http://visionmedia.github.io/mocha">Mocha</a> unit tests inside the <code>lib/components/{{component-name}}/test</code> directory.</dd>
 
   <dt>js:test:report:coveralls</dt>
-  <dd>Sends test coverage data to *Coveralls.io*. Uses [Istanbul](http://gotwarlost.github.io/istanbul).</dd>
+  <dd>Sends test coverage data to <a href="https://coveralls.io/r/ikebana-ui/ikebana">coveralls.io</a>. Uses <a href="http://gotwarlost.github.io/istanbul">Istanbul</a>.</dd>
 
   <dt>js:minify</dt>
-  <dd>Uses [Uglify](http://lisperator.net/uglifyjs) to minify all the `lib/components/{{component-name}}/js/*.js` files</dd>
+  <dd>Uses <a href="http://lisperator.net/uglifyjs">Uglify</a> to minify all the <code>lib/components/{{component-name}}/js/*.js</code> files.</dd>
 
   <dt>doc:styleguide</dt>
-  <dd>Uses [Hologram](http://github.com/trulia/hologram) to generate a styleguide.</dd>
+  <dd>Uses <a href="http://github.com/trulia/hologram">Hologram</a> to generate a styleguide.</dd>
 
   <dt>dist:sources</dt>
-  <dd>Simply copies all the files under `lib/components/**.*` (excluding `lib/components/{{component-name}}/test/**.*`) to the `dist` directory.</dd>
+  <dd>Copies all the files under <code>lib/components/**.*</code> (excluding <code>lib/components/{{component-name}}/test/**.*<code>) to the <code>dist</code> directory.</dd>
 
   <dt>dist:zip</dt>
-  <dd>Zips up all the component files in `dist/components/{{component-name}}` to `dist/components/{{component-name}}/{{component-name}}-<package-version>.zip`.</package-version>
+  <dd>Compresses (zip) all the component files in <code>dist/components/{{component-name}}</code> to <code>dist/components/{{component-name}}/{{component-name}}-{{package-version}}.zip<code>.</dd>
 
   <dt>server</dt>
-  <dd>Runs a live-reload enabled Express server. Watches all the `.js`, `.scss` and `.html` files in `lib/components/{{component-name}}/**.*` directories and runs **css:compass** and **dist:sources**.</dd>
+  <dd>Runs a live-reload enabled Express server. Watches all the source files in <code>lib/components/{{component-name}}<code> directories and runs <strong>css:compass</strong> and <strong>dist:sources</strong>.</dd>
 
   <dt>build</dt>
-  <dd>An alias for **css:compass**, **js:minify** and **dist:sources**. *More tasks may be added in the future.*</dd>
+  <dd>An alias for <strong>css:compass</strong>, <strong>js:minify</strong> and <strong>dist:sources</strong>. (More tasks may be added in the future.)</dd>
 
   <dt>dist</dt>
-  <dd>An alias for **dist:zip**. *More tasks may be added in the future.*</dd>
+  <dd>An alias for <strong>dist:zip</strong>. (More tasks may be added in the future.)</dd>
 
   <dt>deploy</dt>
-  <dd>An alias for **bump:tag**. *More tasks may be added in the future.*</dd>
+  <dd>An alias for <strong>bump:tag</strong>. (More tasks may be added in the future.)</dd>
 
   <dt>default</dt>
   <dd>Just lists all the available tasks.</dd>
