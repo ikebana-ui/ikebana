@@ -77,7 +77,7 @@ In addition to `gulp server`, the following tasks are available to you...
     <dd>
       <p>Takes an argument (<code>name</code>), the component name, and creates a directory, <code>lib/components/{{component-name}}</code>, for that component with stub <code>.scss</code>, <code>.js</code> and <code>.html</code> files.</p>
       <p>For example, to create a new component called, <strong>button</strong>, just run&hellip;</p>
-      <code><pre>gulp create --name button</pre></code>
+      <code>gulp create --name button</code>
   </dd>
 
   <dt>css:compass</dt>
@@ -87,7 +87,7 @@ In addition to `gulp server`, the following tasks are available to you...
   <dd>Uses <code>sass</code> to compile all the <code>lib/components/{{component-name}}/css/*.scss</code> files.</dd>
 
   <dt>js:lint</dt>
-  <dd>Runs <code>jshint</code> on all the <code>lib/components/{{component-name}}/js/*.js<code> files. Uses <code>.jshintrc</code> for configuration.</dd>
+  <dd>Runs <code>jshint</code> on all the <code>lib/components/{{component-name}}/js/*.js</code> files. Uses <code>.jshintrc</code> for configuration.</dd>
 
   <dt>js:test</dt>
   <dd>Runs all the <a href="http://visionmedia.github.io/mocha">Mocha</a> unit tests inside the <code>lib/components/{{component-name}}/test</code> directory.</dd>
