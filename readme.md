@@ -7,7 +7,7 @@
 
 
 
-## Getting started with development
+## :black_nib: Getting started with development
 
 Ikebana uses the following libraries...
 
@@ -32,31 +32,31 @@ Once done, the `dist` directory will have the built artefacts in the `master` br
 
 
 
-## Contributing to Ikebana
+## :mortar_board: Contributing to Ikebana
 
 You are welcome to contribute components to Ikebana; just fork this repo and send us a pull request. Please read the [Contributing](https://github.com/ikebana-ui/ikebana/wiki/Contributing) wiki for more details.
 
 
-### Updating your codebase
+### :high_brightness: Updating your codebase
 
 * Use `git pull --rebase` to update your codebase.
-* Run `bundle install && npm install && bower install` after a `git pull --rebase` to ensure that any newly added packages are installed.
+* :warning: Run `bundle install && npm install && bower install` after a `git pull --rebase` to ensure that any newly added packages are installed.
 
 
-### Creating a new component
+### :star2: Creating a new component
 
 * Use `gulp create --name {{component-name}}` to create a new component.
 * This will create a new directory under `lib/components/{{component-name}}`.
 
 
-### Developing a component
+### :pencil2: Developing a component
 
 * Use `gulp server` to fire up a live-reload server.
 * Open `http://localhost:4000/dist/components/{{component-name}}/{{component-name}}.html`.
 * The `server` task will watch the `lib/components` directory and reload your browser upon detecting changes.
 
 
-### Gulp tasks
+### :dart: Gulp tasks
 
 In addition to `gulp server`, the following tasks are available to you...
 
@@ -123,13 +123,13 @@ In addition to `gulp server`, the following tasks are available to you...
   <dd>Just lists all the available tasks.</dd>
 </dl>
 
-### Distributing a component
+### :rocket: Distributing a component
 
 * Use `gulp dist` to create a distributable version of all the components in the `dist` folder.
 
 
 
-## License
+## :scroll: License
 
 Ikebana is licensed under the [MIT license](license.md).
 
