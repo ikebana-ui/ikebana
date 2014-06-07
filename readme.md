@@ -108,7 +108,7 @@ In addition to `gulp server`, the following tasks are available to you...
   <dd>Compresses (zip) all the component files in <code>dist/components/{{component-name}}</code> to <code>dist/components/{{component-name}}/{{component-name}}-{{package-version}}.zip<code>.</dd>
 
   <dt>server</dt>
-  <dd>Runs a live-reload enabled Express server. Watches all the source files in <code>lib/components/{{component-name}}<code> directories and runs <strong>css:compass</strong> and <strong>dist:sources</strong>.</dd>
+  <dd>Runs a live-reload enabled Express server. Watches all the source files in <code>lib/components/{{component-name}}</code> directories and runs <strong>css:compass</strong> and <strong>dist:sources</strong>.</dd>
 
   <dt>build</dt>
   <dd>An alias for <strong>css:compass</strong>, <strong>js:minify</strong> and <strong>dist:sources</strong>. (More tasks may be added in the future.)</dd>
