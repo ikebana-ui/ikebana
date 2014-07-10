@@ -28,6 +28,7 @@ css_include:
 # List all js to include for the styleguide render examples (path from styleguide directory)
 js_include:
 #  - '../dist/ikebana.js'
+  - ''
 
 # Mark which category should be the index page
 # Alternatively, you may have an index.md in the documentation assets
