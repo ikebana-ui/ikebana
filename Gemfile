@@ -20,3 +20,6 @@ gem 'hologram', '~> 1.1.0'
 
 # rubygems.org/gems/haml
 gem 'haml', '~> 4.0.5'
+
+# rubygems.org/gems/scss-lint
+gem 'scss-lint', '~> 0.25.1'
