@@ -80,25 +80,22 @@ In addition to `gulp server`, the following tasks are available to you...
       <pre>gulp create --name button</pre>
   </dd>
 
-  <dt>css:compass</dt>
-  <dd>Uses <code>compass</code> to compile all the <code>lib/components/{{component-name}}/css/*.scss</code> files.</dd>
-
-  <dt>css:sass</dt>
+  <dt>style:compile</dt>
   <dd>Uses <code>sass</code> to compile all the <code>lib/components/{{component-name}}/css/*.scss</code> files.</dd>
 
-  <dt>js:lint</dt>
+  <dt>script:lint</dt>
   <dd>Runs <code>jshint</code> on all the <code>lib/components/{{component-name}}/js/*.js</code> files. Uses <code>.jshintrc</code> for configuration.</dd>
 
-  <dt>js:test</dt>
+  <dt>script:test</dt>
   <dd>Runs all the <a href="http://visionmedia.github.io/mocha">Mocha</a> unit tests inside the <code>lib/components/{{component-name}}/test</code> directory.</dd>
 
-  <dt>js:test:report:coveralls</dt>
+  <dt>script:test:report:coveralls</dt>
   <dd>Sends test coverage data to <a href="https://coveralls.io/r/ikebana-ui/ikebana">coveralls.io</a>. Uses <a href="http://gotwarlost.github.io/istanbul">Istanbul</a>.</dd>
 
-  <dt>js:minify</dt>
+  <dt>script:minify</dt>
   <dd>Uses <a href="http://lisperator.net/uglifyjs">Uglify</a> to minify all the <code>lib/components/{{component-name}}/js/*.js</code> files.</dd>
 
-  <dt>doc:styleguide</dt>
+  <dt>style:doc</dt>
   <dd>Uses <a href="http://github.com/trulia/hologram">Hologram</a> to generate a styleguide.</dd>
 
   <dt>dist:sources</dt>
@@ -108,16 +105,10 @@ In addition to `gulp server`, the following tasks are available to you...
   <dd>Compresses (zip) all the component files in <code>dist/components/{{component-name}}</code> to <code>dist/components/{{component-name}}/{{component-name}}-{{package-version}}.zip<code>.</dd>
 
   <dt>server</dt>
-  <dd>Runs a live-reload enabled Express server. Watches all the source files in <code>lib/components/{{component-name}}</code> directories and runs <strong>css:compass</strong> and <strong>dist:sources</strong>.</dd>
+  <dd>Creates a live-reload server using browser-sync.</dd>
 
   <dt>build</dt>
-  <dd>An alias for <strong>css:compass</strong>, <strong>js:minify</strong> and <strong>dist:sources</strong>. (More tasks may be added in the future.)</dd>
-
-  <dt>dist</dt>
-  <dd>An alias for <strong>dist:zip</strong>. (More tasks may be added in the future.)</dd>
-
-  <dt>deploy</dt>
-  <dd>An alias for <strong>bump:tag</strong>. (More tasks may be added in the future.)</dd>
+  <dd>Cleans and builds the entire project to the <code>dist</code> directory.</dd>
 
   <dt>default</dt>
   <dd>Just lists all the available tasks.</dd>
