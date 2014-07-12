@@ -30,7 +30,11 @@ module.exports = {
       styleLint: ".scsslintrc",
       scriptLint: ".jshintrc",
       compass: "config.rb",
-      hologram: ".hologramrc"
+      hologram: ".hologramrc",
+      bundler: {
+        gemfile: "Gemfile",
+        gemfileLock: "Gemfile.lock"
+      }
     },
     extension: {
       style: {
