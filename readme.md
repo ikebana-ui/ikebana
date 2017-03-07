@@ -88,7 +88,7 @@ In addition to the `serve` task, the following tasks are available to you...
   <dd>Runs <code>jshint</code> on all the <code>lib/components/{{component-name}}/js/*.js</code> files. Uses <code>.jshintrc</code> for configuration.</dd>
 
   <dt>script:test</dt>
-  <dd>Runs all the <a href="http://visionmedia.github.io/mocha">Mocha</a> unit tests inside the <code>lib/components/{{component-name}}/test</code> directory.</dd>
+  <dd>Runs all the <a href="http://mochajs.org/">Mocha</a> unit tests inside the <code>lib/components/{{component-name}}/test</code> directory.</dd>
 
   <dt>script:test:report:coveralls</dt>
   <dd>Sends test coverage data to <a href="https://coveralls.io/r/ikebana-ui/ikebana">coveralls.io</a>. Uses <a href="http://gotwarlost.github.io/istanbul">Istanbul</a>.</dd>
