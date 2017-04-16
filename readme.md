@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ikebana-ui/ikebana.png?label=ready&title=Ready)](https://waffle.io/ikebana-ui/ikebana)
 # Ikebana
 
 > Ikebana (/ˌɪkɪˈbɑːnə/) is a UI component library.  
